@@ -1,14 +1,5 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -49,18 +40,27 @@ body {
   }
 }
 
-@keyframes bubble {
+@keyframes bubbleRise {
   0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.5;
+  }
+
+  25% {
+    transform: translateY(-25vh) translateX(5px) scale(1.05);
   }
 
   50% {
-    opacity: 0.4;
+    transform: translateY(-50vh) translateX(-5px) scale(0.95);
+    opacity: 0.3;
+  }
+
+  75% {
+    transform: translateY(-75vh) translateX(3px) scale(1.02);
   }
 
   100% {
-    transform: translateY(-100vh) scale(1.2);
+    transform: translateY(-100vh) translateX(0) scale(1);
     opacity: 0;
   }
 }
@@ -69,8 +69,39 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-.animate-bubble {
-  animation: bubble 10s ease-in-out infinite;
+/* Small bubbles */
+.bubble-small {
+  position: absolute;
+  bottom: -10px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: bubbleRise 8s ease-in-out infinite;
+}
+
+.bubble-small:nth-child(2n) {
+  width: 8px;
+  height: 8px;
+  animation-duration: 10s;
+}
+
+.bubble-small:nth-child(3n) {
+  width: 5px;
+  height: 5px;
+  animation-duration: 7s;
+}
+
+.bubble-small:nth-child(4n) {
+  width: 10px;
+  height: 10px;
+  animation-duration: 12s;
+}
+
+.bubble-small:nth-child(5n) {
+  width: 4px;
+  height: 4px;
+  animation-duration: 9s;
 }
 
 .delay-500 {
