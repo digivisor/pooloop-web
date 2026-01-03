@@ -155,7 +155,7 @@ export default function Footer() {
             <div className="border-t border-white/10">
                 <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-white/60 text-sm text-center md:text-left">
-                        © 2025 Pooloop. Tüm hakları saklıdır.
+                        © 2026 Pooloop. Tüm hakları saklıdır.
                     </p>
                     <button
                         onClick={scrollToTop}

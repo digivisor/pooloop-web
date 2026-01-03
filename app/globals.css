@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 body {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #ffffff;
@@ -9,9 +8,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -20,90 +23,79 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #0c436c;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #082d4a;
 }
 
-/* Animation keyframes */
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
+/* Small bubble animation */
 @keyframes bubbleRise {
   0% {
-    transform: translateY(0) translateX(0) scale(1);
-    opacity: 0.5;
+    bottom: -10px;
+    opacity: 0;
   }
 
-  25% {
-    transform: translateY(-25vh) translateX(5px) scale(1.05);
-  }
-
-  50% {
-    transform: translateY(-50vh) translateX(-5px) scale(0.95);
-    opacity: 0.3;
-  }
-
-  75% {
-    transform: translateY(-75vh) translateX(3px) scale(1.02);
+  10% {
+    opacity: 0.7;
   }
 
   100% {
-    transform: translateY(-100vh) translateX(0) scale(1);
+    bottom: 100%;
     opacity: 0;
   }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+@keyframes bubbleWiggle {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(3px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
 }
 
-/* Small bubbles */
+/* Small bubbles for CTA */
 .bubble-small {
   position: absolute;
   bottom: -10px;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  animation: bubbleRise 8s ease-in-out infinite;
-}
-
-.bubble-small:nth-child(2n) {
-  width: 8px;
-  height: 8px;
-  animation-duration: 10s;
-}
-
-.bubble-small:nth-child(3n) {
-  width: 5px;
-  height: 5px;
-  animation-duration: 7s;
-}
-
-.bubble-small:nth-child(4n) {
-  width: 10px;
-  height: 10px;
-  animation-duration: 12s;
-}
-
-.bubble-small:nth-child(5n) {
   width: 4px;
   height: 4px;
-  animation-duration: 9s;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: bubbleRise 6s ease-in-out infinite, bubbleWiggle 2s ease-in-out infinite;
 }
 
-.delay-500 {
-  animation-delay: 0.5s;
+/* Marquee animation for partners */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
 }
