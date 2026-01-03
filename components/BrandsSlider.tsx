@@ -46,7 +46,7 @@ export default function BrandsSlider() {
                                         src={`/markalar/${brand}`}
                                         alt={brand.replace(/\.(jpg|png)$/, '')}
                                         width={100}
-                                        height={60}
+                                        height={100}
                                         className="w-full h-full object-contain"
                                     />
                                 </div>

@@ -151,19 +151,20 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* Bottom Bar */}
             <div className="border-t border-white/10">
-                <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="max-w-7xl mx-auto px-6 py-6 relative">
                     <p className="text-white/60 text-sm text-center md:text-left">
                         © 2026 Pooloop. Tüm hakları saklıdır.
                     </p>
-                    <button
-                        onClick={scrollToTop}
-                        className="w-10 h-10 rounded-full bg-[#3b9fc9] flex items-center justify-center hover:bg-[#1a5a8a] transition-colors"
-                        aria-label="Yukarı çık"
+                    <a
+                        href="https://digivisor.com.tr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/60 text-sm hover:text-white transition-colors md:absolute md:right-6 md:top-1/2 md:-translate-y-1/2 flex items-center justify-center md:justify-end gap-2 mt-2 md:mt-0"
                     >
-                        <ArrowUp size={20} />
-                    </button>
+                        <span>created by</span>
+                        <Image src="/digivisor.svg" alt="Digivisor" width={50} height={24} className="h-4 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+                    </a>
                 </div>
             </div>
         </footer>

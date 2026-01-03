@@ -4,12 +4,25 @@ import { useState, useEffect } from "react";
 
 export default function WhatsAppButton() {
     const [isVisible, setIsVisible] = useState(false);
+    const [bottomOffset, setBottomOffset] = useState(24);
 
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const heroHeight = window.innerHeight * 0.8;
             setIsVisible(scrollY > heroHeight);
+
+            // Calculate distance from bottom of page
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = window.innerHeight;
+            const distanceFromBottom = scrollHeight - (scrollY + clientHeight);
+
+            // When near footer (within 80px of bottom), push button up
+            if (distanceFromBottom < 80) {
+                setBottomOffset(50 - distanceFromBottom + 24);
+            } else {
+                setBottomOffset(24);
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -25,7 +38,8 @@ export default function WhatsAppButton() {
             href="https://wa.me/902121234567"
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+            className="fixed right-6 z-50 flex items-center gap-3 bg-[#25D366] text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+            style={{ bottom: `${bottomOffset}px` }}
             aria-label="WhatsApp ile iletişime geçin"
         >
             {/* Original WhatsApp SVG Icon */}

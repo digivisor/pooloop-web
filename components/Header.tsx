@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, Truck } from "lucide-react";
 
 const navLinks = [
     { name: "Anasayfa", path: "/" },
@@ -42,8 +42,10 @@ export default function Header() {
                             <span>info@pooloop.com.tr</span>
                         </a>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                       
                         <span>Türkiye&apos;nin Her Yerine Hizmet</span>
+                         <Truck size={16} className="text-[#]" />
                     </div>
                 </div>
             </div>
@@ -51,8 +53,8 @@ export default function Header() {
             {/* Main Header */}
             <header
                 className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
-                        ? "bg-white shadow-lg"
-                        : "bg-white/95 backdrop-blur-sm"
+                    ? "bg-white shadow-lg"
+                    : "bg-white/95 backdrop-blur-sm"
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-6">
