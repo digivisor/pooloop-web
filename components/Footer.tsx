@@ -151,21 +151,21 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="border-t border-white/10">
-                <div className="max-w-7xl mx-auto px-6 py-6 relative">
-                    <p className="text-white/60 text-sm text-center md:text-left">
+            <div className="border-t border-white/10 relative">
+                <div className="max-w-7xl mx-auto px-6 py-6 text-center md:text-left">
+                    <p className="text-white/60 text-sm">
                         © 2026 Pooloop. Tüm hakları saklıdır.
                     </p>
-                    <a
-                        href="https://digivisor.com.tr"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/60 text-sm hover:text-white transition-colors md:absolute md:right-6 md:top-1/2 md:-translate-y-1/2 flex items-center justify-center md:justify-end gap-2 mt-2 md:mt-0"
-                    >
-                        <span>created by</span>
-                        <Image src="/digivisor.svg" alt="Digivisor" width={50} height={24} className="h-4 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-                    </a>
                 </div>
+                <a
+                    href="https://digivisor.com.tr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex justify-center md:absolute md:right-6 md:top-1/2 md:-translate-y-1/2 items-center gap-1 pb-6 md:pb-0 text-white/60 text-sm hover:text-white transition-colors"
+                >
+                    <span>created by</span>
+                    <Image src="/digivisor.svg" alt="Digivisor" width={50} height={24} className="h-4 w-auto opacity-80 mt-0.2hover:opacity-100 transition-opacity" />
+                </a>
             </div>
         </footer>
     );
