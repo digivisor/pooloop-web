@@ -16,6 +16,9 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { ReactCompareSlider, ReactCompareSliderImage } from "react-compare-slider";
+import BrandsSlider from "@/components/BrandsSlider";
+import TestimonialsSlider from "@/components/TestimonialsSlider";
+import GalleryLightbox from "@/components/GalleryLightbox";
 
 // Services data with images
 const services = [
@@ -384,151 +387,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partners / Brands Section - Marquee */}
-      <section className="py-16 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <span className="inline-block text-[#3b9fc9] font-semibold text-sm tracking-wider uppercase mb-3">
-              Çözüm Ortaklarımız
-            </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0c436c]">
-              Güçlü Markalarla İş Birliği
-            </h2>
-          </div>
+      {/* Partners / Brands Slider */}
+      <BrandsSlider />
 
-          {/* Marquee Container */}
-          <div className="relative overflow-hidden">
-            <div className="marquee-container">
-              <div className="marquee-content">
-                {["Hayward", "Astral Pool", "Emaux", "Pentair", "Fluidra", "Zodiac", "Hayward", "Astral Pool", "Emaux", "Pentair", "Fluidra", "Zodiac"].map((brand, i) => (
-                  <div
-                    key={i}
-                    className="w-44 h-24 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center mx-4 shrink-0 hover:border-[#3b9fc9] hover:shadow-md transition-all"
-                  >
-                    <span className="text-[#0c436c] font-bold text-lg">{brand}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Testimonials Slider */}
+      <TestimonialsSlider />
 
-      {/* References / Testimonials Section - Creative */}
-      <section className="py-20 bg-[#f8fbfd] relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#3b9fc9]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-[#0c436c]/10 rounded-full blur-3xl" />
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-14">
-            <span className="inline-block text-[#3b9fc9] font-semibold text-sm tracking-wider uppercase mb-3">
-              Referanslarımız
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0c436c] mb-4">
-              Mutlu Müşterilerimiz
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Yıllar içinde yüzlerce projeye imza attık. İşte bazı referanslarımız.
-            </p>
-          </div>
-
-          {/* Creative Testimonial Cards */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Ahmet Yılmaz",
-                role: "Villa Sahibi",
-                location: "İstanbul, Beykoz",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
-                quote: "Villam için hayal ettiğim havuzu tam istediğim gibi inşa ettiler.",
-                project: "Infinity Havuz"
-              },
-              {
-                name: "Seda Kaya",
-                role: "Otel Müdürü",
-                location: "Antalya, Belek",
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
-                quote: "Otelimizin havuzlarının bakımını düzenli olarak yapıyorlar.",
-                project: "Otel Bakımı"
-              },
-              {
-                name: "Mehmet Demir",
-                role: "Site Yöneticisi",
-                location: "Ankara, Çankaya",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop",
-                quote: "Sitemizin olimpik havuzunu mükemmel bir şekilde yenilediler.",
-                project: "Renovasyon"
-              },
-              {
-                name: "Zeynep Arslan",
-                role: "Ev Sahibi",
-                location: "İzmir, Çeşme",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
-                quote: "Yazlık evimize prefabrik havuz yaptırdık, çok memnunuz.",
-                project: "Prefabrik Havuz"
-              },
-              {
-                name: "Can Yıldırım",
-                role: "Spor Tesisi Müdürü",
-                location: "Bursa, Nilüfer",
-                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
-                quote: "Yarı olimpik havuzumuzun tüm kimyasal ihtiyaçlarını karşılıyorlar.",
-                project: "Kimyasal Tedarik"
-              },
-              {
-                name: "Ayşe Öztürk",
-                role: "Butik Otel Sahibi",
-                location: "Muğla, Bodrum",
-                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
-                quote: "Her sezon açılış öncesi havuzumuzu hazır hale getiriyorlar.",
-                project: "Sezonluk Bakım"
-              }
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
-              >
-                {/* Quote Icon */}
-                <div className="absolute top-6 right-6 text-[#3b9fc9]/20 text-6xl font-serif">"</div>
-
-                {/* Project Tag */}
-                <div className="inline-block bg-[#0c436c] text-white text-xs font-semibold px-3 py-1 rounded-full mb-6">
-                  {testimonial.project}
-                </div>
-
-                {/* Quote */}
-                <p className="text-gray-600 leading-relaxed mb-6 relative z-10">
-                  "{testimonial.quote}"
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#3b9fc9]">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-[#0c436c]">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                    <p className="text-xs text-[#3b9fc9]">{testimonial.location}</p>
-                  </div>
-                </div>
-
-                {/* Hover decoration */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-[#3b9fc9] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Gallery - Creative Bento Grid */}
+      {/* Projects Gallery - Clean Bento Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -543,78 +409,21 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Bento Grid Gallery */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
-            {/* Large Image */}
-            <div className="col-span-2 row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer">
-              <Image
-                src="/galeri1.jpg"
-                alt="Proje 1"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <span className="bg-[#3b9fc9] text-xs font-semibold px-3 py-1 rounded-full">Villa Havuzu</span>
-                <h3 className="text-xl font-bold mt-2">Beykoz Villa Projesi</h3>
-              </div>
-            </div>
-
-            {/* Regular Images */}
-            <div className="group relative rounded-2xl overflow-hidden cursor-pointer">
-              <Image
-                src="/galeri2.jpg"
-                alt="Proje 2"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-              <div className="absolute bottom-3 left-3">
-                <span className="bg-white/90 text-[#0c436c] text-xs font-semibold px-2 py-1 rounded">Otel</span>
-              </div>
-            </div>
-
-            <div className="group relative rounded-2xl overflow-hidden cursor-pointer">
-              <Image
-                src="/galeri3.jpg"
-                alt="Proje 3"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-              <div className="absolute bottom-3 left-3">
-                <span className="bg-white/90 text-[#0c436c] text-xs font-semibold px-2 py-1 rounded">Aquapark</span>
-              </div>
-            </div>
-
-            {/* Tall Image */}
-            <div className="row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer">
-              <Image
-                src="/galeri4.jpg"
-                alt="Proje 4"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-              <div className="absolute bottom-4 left-4">
-                <span className="bg-[#0c436c] text-white text-xs font-semibold px-3 py-1 rounded-full">Infinity Havuz</span>
-              </div>
-            </div>
-
-            {/* Last Image */}
-            <div className="group relative rounded-2xl overflow-hidden cursor-pointer">
-              <Image
-                src="/galeri5.jpg"
-                alt="Proje 5"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-              <div className="absolute bottom-3 left-3">
-                <span className="bg-white/90 text-[#0c436c] text-xs font-semibold px-2 py-1 rounded">Site</span>
-              </div>
-            </div>
-          </div>
+          {/* Gallery with Lightbox */}
+          <GalleryLightbox
+            images={[
+              "/galeri1.jpg",
+              "/galeri2.jpg",
+              "/galeri3.jpg",
+              "/galeri4.jpg",
+              "/galeri5.jpg",
+              "/galeri6.jpg",
+              "/galeri7.jpg",
+              "/galeri8.jpg",
+              "/galeri9.jpg",
+              "/galeri10.jpg",
+            ]}
+          />
         </div>
       </section>
 
@@ -622,14 +431,16 @@ export default function Home() {
       <section className="py-20 bg-[#0c436c] relative overflow-hidden">
         {/* Many Small Animated Bubbles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {bubbles.map((bubble) => (
-            <Bubble
-              key={bubble.id}
-              left={bubble.left}
-              delay={bubble.delay}
-              size={bubble.size}
-            />
-          ))}
+          {
+            bubbles.map((bubble) => (
+              <Bubble
+                key={bubble.id}
+                left={bubble.left}
+                delay={bubble.delay}
+                size={bubble.size}
+              />
+            ))
+          }
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
