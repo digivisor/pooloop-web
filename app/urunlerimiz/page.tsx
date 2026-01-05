@@ -405,7 +405,6 @@ export default function ProductsPage() {
                 </div>
             </section>
 
-            {/* Product Detail Modal */}
             {selectedProduct && (
                 <div
                     className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
@@ -415,7 +414,6 @@ export default function ProductsPage() {
                         className="bg-gray-50 rounded-3xl w-full max-w-4xl shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Modal Header */}
                         <div className="sticky top-0 bg-gray-50 border-b border-gray-200 p-4 flex items-center justify-between z-10">
                             <span className="bg-[#0c436c] text-white text-sm font-medium px-4 py-1.5 rounded-full">
                                 {selectedProduct.category}

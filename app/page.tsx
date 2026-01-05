@@ -25,51 +25,87 @@ import InstagramFeed from "@/components/InstagramFeed";
 const services = [
   {
     icon: Droplets,
-    title: "Havuz Yapımı",
+    title: "Havuz Sistemleri",
     description:
-      "Özel tasarım havuzlar, olimpik havuzlar ve prefabrik havuz sistemleri ile hayalinizdeki havuzu inşa ediyoruz.",
-    link: "/hizmetlerimiz/havuz-yapimi",
-    image: "/galeri1.jpg",
-  },
-  {
-    icon: FlaskConical,
-    title: "Havuz Kimyasalları",
-    description:
-      "Klor, pH düzenleyiciler, algisitler ve tüm havuz kimyasallarını en kaliteli markalardan temin ediyoruz.",
-    link: "/hizmetlerimiz/havuz-kimyasallari",
-    image: "",
+      "Özel tasarım havuzlar, olimpik havuzlar, terapi havuzları ve daha fazlası için komple çözümler.",
+    link: "/hizmetlerimiz/havuz-sistemleri",
+    image: "/havuzsistemleri-1.png",
+    features: [
+      "Özel Tasarım",
+      "Olimpik Havuz",
+      "Terapi Havuzu",
+      "Süs Havuzu"
+    ]
   },
   {
     icon: Waves,
     title: "Su Arıtma Sistemleri",
     description:
-      "Havuz suyu arıtma, filtrasyon sistemleri ve dezenfeksiyon çözümleri ile kristal berraklığında su.",
-    link: "/hizmetlerimiz/su-aritma",
-    image: "https://images.unsplash.com/photo-1581578017093-cd30ed3e4b98?q=80&w=800&auto=format&fit=crop",
+      "Endüstriyel ve evsel kullanım için su arıtma sistemleri, filtrasyon ve dezenfeksiyon çözümleri.",
+    link: "/hizmetlerimiz/su-aritma-sistemleri",
+    image: "/suaritma.png",
+    features: [
+      "Endüstriyel Arıtma",
+      "Evsel Arıtma",
+      "Filtrasyon",
+      "Dezenfeksiyon"
+    ]
   },
   {
     icon: Wrench,
     title: "Teknik Servis",
     description:
-      "Havuz pompaları, filtreler ve tüm ekipmanlarınız için 7/24 teknik servis ve bakım hizmeti sunuyoruz.",
+      "Havuz ve su arıtma sistemleri için bakım, onarım ve periyodik kontrol hizmetleri.",
     link: "/hizmetlerimiz/teknik-servis",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop",
+    image: "/teknik.png",
+    features: [
+      "Periyodik Bakım",
+      "Arıza Onarım",
+      "Yedek Parça",
+      "7/24 Destek"
+    ]
+  },
+  {
+    icon: FlaskConical,
+    title: "Havuz Kimyasalları",
+    description:
+      "Havuz ve proses suyu şartlandırma için yüksek kaliteli kimyasallar ve dozaj sistemleri.",
+    link: "/hizmetlerimiz/havuz-kimyasallari",
+    image: "/kimyasal.jpg",
+    features: [
+      "Klor Ürünleri",
+      "pH Düzenleyiciler",
+      "Yosun Önleyiciler",
+      "Dozaj Sistemleri"
+    ]
   },
   {
     icon: Sparkles,
-    title: "Havuz Bakımı",
+    title: "Isıtma ve Soğutma",
     description:
-      "Periyodik bakım, temizlik ve su analizi hizmetleri ile havuzunuz her zaman kullanıma hazır.",
-    link: "/hizmetlerimiz/havuz-bakimi",
-    image: "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?q=80&w=800&auto=format&fit=crop",
+      "Havuzlar ve endüstriyel tesisler için ısıtma ve soğutma çözümleri.",
+    link: "/hizmetlerimiz/isitma-sogutma",
+    image: "/isitma.png",
+    features: [
+      "Havuz Isıtma",
+      "Isı Pompaları",
+      "Güneş Enerjisi",
+      "Soğutma Grubu"
+    ]
   },
   {
     icon: ShieldCheck,
-    title: "Danışmanlık",
+    title: "Otomasyon Sistemleri",
     description:
-      "Havuz projeleri için profesyonel danışmanlık, fizibilite ve proje yönetimi hizmetleri veriyoruz.",
-    link: "/hizmetlerimiz/danismanlik",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+      "Havuz ve su arıtma sistemleri için akıllı otomasyon çözümleri.",
+    link: "/hizmetlerimiz/otomasyon-sistemleri",
+    image: "/otomasyon.png",
+    features: [
+      "Uzaktan Kontrol",
+      "Akıllı Dozaj",
+      "Enerji Yönetimi",
+      "Mobil Uygulama"
+    ]
   },
 ];
 
@@ -246,268 +282,54 @@ export default function Home() {
 
           {/* Services Grid - 3x2 Image Background Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {/* Service 1 - Havuz Yapımı */}
-            <Link href="/hizmetlerimiz/havuz-yapimi" className="group relative rounded-2xl overflow-hidden min-h-[360px]">
-              <Image src="/galeri1.jpg" alt="Havuz Yapımı" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-[#0c436c]/70 group-hover:bg-[#0c436c]/90 transition-colors" />
-              {/* Decorative Circles */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+            {services.map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.link}
+                className="group relative rounded-2xl overflow-hidden min-h-[400px] flex flex-col"
+              >
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-[#0c436c]/70 group-hover:bg-[#0c436c]/90 transition-colors" />
 
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                <div>
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <Droplets size={24} />
+                {/* Decorative Circles - Varying positions based on index for variety */}
+                <div className={`absolute w-32 h-32 bg-white/10 rounded-full z-0 ${idx % 2 === 0 ? '-top-10 -right-10' : '-bottom-10 -left-10'}`} />
+                <div className={`absolute w-24 h-24 bg-white/5 rounded-full z-0 ${idx % 2 === 0 ? 'bottom-10 left-10' : 'top-10 right-10'}`} />
+
+                <div className="absolute bottom-0 left-0 w-full z-10 p-6 text-white">
+                  <div>
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
+                      <service.icon size={24} />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                    <p className="text-white/70 text-base mb-3 leading-snug">
+                      {service.description}
+                    </p>
+
+                    {/* Features List */}
+                    {service.features && (
+                      <ul className="space-y-1 mb-4">
+                        {service.features.map((feature, fidx) => (
+                          <li key={fidx} className="flex items-center gap-2 text-sm text-white/80">
+                            <CheckCircle2 size={14} className="text-[#3b9fc9] shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Havuz Yapımı</h3>
-                  <p className="text-white/70 text-base mb-3">
-                    Betonarme, prefabrik ve özel tasarım havuzlar
-                  </p>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Olimpik Havuz
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Özel Tasarım
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Infinity Havuz
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Jakuzi
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex justify-end">
-                  <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
-                    Detaylı Bilgi <ArrowRight size={18} />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Service 2 - Havuz Kimyasalları */}
-            <Link href="/hizmetlerimiz/havuz-kimyasallari" className="group relative rounded-2xl overflow-hidden min-h-[360px]">
-              <Image src="/kimyasal.jpg" alt="Havuz Kimyasalları" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-[#0c436c]/70 group-hover:bg-[#0c436c]/90 transition-colors" />
-              {/* Decorative Circles */}
-              <div className="absolute top-0 left-0 w-28 h-28 bg-white/10 rounded-full -translate-y-1/2 -translate-x-1/2" />
-              <div className="absolute bottom-0 right-0 w-20 h-20 bg-white/5 rounded-full translate-y-1/2 translate-x-1/2" />
-
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                <div>
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <FlaskConical size={24} />
+                  <div className="flex justify-end mt-auto">
+                    <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
+                      Detaylı Bilgi <ArrowRight size={18} />
+                    </span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Havuz Kimyasalları</h3>
-                  <p className="text-white/70 text-base mb-3">
-                    Klor, pH düzenleyici ve bakım ürünleri
-                  </p>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Klor Ürünleri
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      pH Düzenleyici
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Algisit
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Kış Bakım
-                    </li>
-                  </ul>
                 </div>
-                <div className="flex justify-end">
-                  <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
-                    Ürünleri İncele <ArrowRight size={18} />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Service 3 - Teknik Servis */}
-            <Link href="/hizmetlerimiz/teknik-servis" className="group relative rounded-2xl overflow-hidden min-h-[360px]">
-              <Image src="/galeri3.jpg" alt="Teknik Servis" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-[#0c436c]/70 group-hover:bg-[#0c436c]/90 transition-colors" />
-              {/* Decorative Circles */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                <div>
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <Wrench size={24} />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Teknik Servis</h3>
-                  <p className="text-white/70 text-base mb-3">
-                    7/24 arıza desteği ve periyodik bakım
-                  </p>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Pompa Onarımı
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Motor Bakımı
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Filtre Değişimi
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Sezon Bakım
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex justify-end">
-                  <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
-                    Servis Talep Et <ArrowRight size={18} />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Service 4 - Su Arıtma */}
-            <Link href="/hizmetlerimiz/su-aritma" className="group relative rounded-2xl overflow-hidden min-h-[360px]">
-              <Image src="/galeri4.jpg" alt="Su Arıtma" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-[#0c436c]/70 group-hover:bg-[#0c436c]/90 transition-colors" />
-              {/* Decorative Circles */}
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 translate-x-1/2" />
-              <div className="absolute top-0 left-0 w-20 h-20 bg-white/5 rounded-full -translate-y-1/2 -translate-x-1/2" />
-
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                <div>
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <ShieldCheck size={24} />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Su Arıtma Sistemleri</h3>
-                  <p className="text-white/70 text-base mb-3">
-                    Filtrasyon, ısıtma ve otomasyon
-                  </p>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Kum Filtre
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Tuzlu Su
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      UV Sistem
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Ozon
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex justify-end">
-                  <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
-                    Sistemleri İncele <ArrowRight size={18} />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Service 5 - Havuz Aksesuarları */}
-            <Link href="/hizmetlerimiz/havuz-aksesuarlari" className="group relative rounded-2xl overflow-hidden min-h-[360px]">
-              <Image src="/galeri5.jpg" alt="Havuz Aksesuarları" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-[#0c436c]/80 group-hover:bg-[#0c436c]/90 transition-colors" />
-              {/* Decorative Circles */}
-              <div className="absolute top-0 left-0 w-24 h-24 bg-white/10 rounded-full -translate-y-1/2 -translate-x-1/2" />
-              <div className="absolute bottom-0 right-0 w-28 h-28 bg-white/5 rounded-full translate-y-1/2 translate-x-1/2" />
-
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                <div>
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <Sparkles size={24} />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Havuz Aksesuarları</h3>
-                  <p className="text-white/70 text-base mb-3">
-                    Merdiven, aydınlatma ve dekoratif ürünler
-                  </p>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      LED Işık
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Merdiven
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Örtü Sistemi
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Robot
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex justify-end">
-                  <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
-                    Ürünleri Gör <ArrowRight size={18} />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Service 6 - Renovasyon */}
-            <Link href="/hizmetlerimiz/renovasyon" className="group relative rounded-2xl overflow-hidden min-h-[360px]">
-              <Image src="/galeri6.jpg" alt="Renovasyon" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-[#0c436c]/70 group-hover:bg-[#0c436c]/90 transition-colors" />
-              {/* Decorative Circles */}
-              <div className="absolute top-0 right-0 w-28 h-28 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                <div>
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <Waves size={24} />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Havuz Renovasyonu</h3>
-                  <p className="text-white/70 text-base mb-3">
-                    Eski havuzların modernizasyonu
-                  </p>
-                  <ul className="space-y-1">
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Kaplama
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Sistem
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Tasarım
-                    </li>
-                    <li className="flex items-center gap-1 text-sm text-white/80">
-                      <CheckCircle2 size={12} className="text-[#3b9fc9] shrink-0" />
-                      Teknoloji
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex justify-end">
-                  <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
-                    Detaylı Bilgi <ArrowRight size={18} />
-                  </span>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -569,7 +391,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?q=80&w=1470&auto=format&fit=crop"
+                  src="/galeri8.jpg"
                   alt="Havuz Bakımı"
                   width={600}
                   height={450}
