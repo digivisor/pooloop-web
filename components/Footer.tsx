@@ -9,16 +9,20 @@ const quickLinks = [
     { name: "Kurumsal", path: "/kurumsal" },
     { name: "Hizmetlerimiz", path: "/hizmetlerimiz" },
     { name: "Ürünlerimiz", path: "/urunlerimiz" },
-    { name: "Referanslar", path: "/referanslar" },
+     { name: "Belgeler", path: "/belgelerimiz" },
+     { name: "Kataloglar", path: "/kataloglarimiz" },
+    // { name: "Referanslar", path: "/referanslar" },
     { name: "İletişim", path: "/iletisim" },
 ];
 
 const services = [
-    { name: "Havuz Yapımı", path: "/hizmetlerimiz/havuz-yapimi" },
+    { name: "Havuz Sistemleri", path: "/hizmetlerimiz/havuz-sistemleri" },
     { name: "Havuz Kimyasalları", path: "/hizmetlerimiz/havuz-kimyasallari" },
-    { name: "Su Arıtma Sistemleri", path: "/hizmetlerimiz/su-aritma" },
+    { name: "Su Arıtma Sistemleri", path: "hizmetlerimiz/su-aritma-sistemleri" },
     { name: "Teknik Servis", path: "/hizmetlerimiz/teknik-servis" },
-    { name: "Havuz Bakımı", path: "/hizmetlerimiz/havuz-bakimi" },
+    { name: "Isıtma Ve Soğutma Sistemleri", path: "/hizmetlerimiz/isitma-sogutma" },
+     { name: 'Otomasyon Sistemleri', path: "/hizmetlerimiz/otomasyon-sistemleri" },
+
 ];
 
 export default function Footer() {

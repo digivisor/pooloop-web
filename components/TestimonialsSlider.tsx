@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, User } from "lucide-react";
 
 const testimonials = [
     {
         name: "Ahmet Yılmaz",
         role: "Villa Sahibi",
         location: "İstanbul, Beykoz",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+        gender: "male",
         quote: "Villam için hayal ettiğim havuzu tam istediğim gibi inşa ettiler.",
         project: "Infinity Havuz"
     },
@@ -17,7 +17,7 @@ const testimonials = [
         name: "Seda Kaya",
         role: "Otel Müdürü",
         location: "Antalya, Belek",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+        gender: "female",
         quote: "Otelimizin havuzlarının bakımını düzenli olarak yapıyorlar.",
         project: "Otel Bakımı"
     },
@@ -25,7 +25,7 @@ const testimonials = [
         name: "Mehmet Demir",
         role: "Site Yöneticisi",
         location: "Ankara, Çankaya",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop",
+        gender: "male",
         quote: "Sitemizin olimpik havuzunu mükemmel bir şekilde yenilediler.",
         project: "Renovasyon"
     },
@@ -33,7 +33,7 @@ const testimonials = [
         name: "Zeynep Arslan",
         role: "Ev Sahibi",
         location: "İzmir, Çeşme",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
+        gender: "female",
         quote: "Yazlık evimize prefabrik havuz yaptırdık, çok memnunuz.",
         project: "Prefabrik Havuz"
     },
@@ -41,7 +41,7 @@ const testimonials = [
         name: "Can Yıldırım",
         role: "Spor Tesisi Müdürü",
         location: "Bursa, Nilüfer",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
+        gender: "male",
         quote: "Yarı olimpik havuzumuzun tüm kimyasal ihtiyaçlarını karşılıyorlar.",
         project: "Kimyasal Tedarik"
     },
@@ -49,7 +49,7 @@ const testimonials = [
         name: "Ayşe Öztürk",
         role: "Butik Otel Sahibi",
         location: "Muğla, Bodrum",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
+        gender: "female",
         quote: "Her sezon açılış öncesi havuzumuzu hazır hale getiriyorlar.",
         project: "Sezonluk Bakım"
     }
@@ -122,14 +122,11 @@ export default function TestimonialsSlider() {
 
                                         {/* Author */}
                                         <div className="flex items-center gap-3">
-                                            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#3b9fc9]">
-                                                <Image
-                                                    src={testimonial.image}
-                                                    alt={testimonial.name}
-                                                    width={48}
-                                                    height={48}
-                                                    className="w-full h-full object-cover"
-                                                />
+                                            <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 border-2 ${testimonial.gender === 'female'
+                                                    ? 'bg-pink-50 border-pink-100 text-pink-500'
+                                                    : 'bg-blue-50 border-blue-100 text-blue-500'
+                                                }`}>
+                                                <User size={24} />
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-[#0c436c] text-sm">{testimonial.name}</h4>
