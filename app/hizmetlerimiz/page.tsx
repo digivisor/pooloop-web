@@ -4,116 +4,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-    Droplets,
-    FlaskConical,
-    Waves,
     Wrench,
-    Sparkles,
-    ShieldCheck,
     ArrowRight,
     CheckCircle2,
     Phone,
 } from "lucide-react";
-
-// Services data
-const services = [
-    {
-        id: "havuz-sistemleri",
-        icon: Droplets,
-        title: "Havuz Sistemleri",
-        shortDesc: "Özel tasarım havuzlar, olimpik havuzlar ve daha fazlası",
-        description: "Özel tasarım havuzlar, olimpik havuzlar, terapi havuzları ve daha fazlası için komple çözümler sunuyoruz.",
-        image: "/havuzsistemleri-1.png",
-        features: [
-            "Özel tasarım havuzlar",
-            "Olimpik havuzlar",
-            "Terapi havuzları",
-            "Süs havuzları",
-            "Çocuk havuzları",
-            "Jakuzi ve spa sistemleri",
-        ],
-    },
-    {
-        id: "su-aritma-sistemleri",
-        icon: Waves,
-        title: "Su Arıtma Sistemleri",
-        shortDesc: "Endüstriyel ve evsel su arıtma çözümleri",
-        description: "Endüstriyel ve evsel kullanım için su arıtma sistemleri, filtrasyon ve dezenfeksiyon çözümleri.",
-        image: "/suaritma.png",
-        features: [
-            "Endüstriyel su arıtma sistemleri",
-            "Evsel su arıtma sistemleri",
-            "Filtrasyon sistemleri",
-            "Dezenfeksiyon sistemleri",
-            "Ters ozmos sistemleri",
-            "Yumuşatma sistemleri",
-        ],
-    },
-    {
-        id: "teknik-servis",
-        icon: Wrench,
-        title: "Teknik Servis",
-        shortDesc: "Bakım, onarım ve periyodik kontrol hizmetleri",
-        description: "Havuz ve su arıtma sistemleri için bakım, onarım ve periyodik kontrol hizmetleri.",
-        image: "/teknik.png",
-        features: [
-            "Periyodik bakım hizmetleri",
-            "Arıza tespit ve onarım",
-            "Yedek parça temini",
-            "Sistem yenileme",
-            "7/24 teknik destek",
-            "Yerinde servis hizmeti",
-        ],
-    },
-    {
-        id: "havuz-kimyasallari",
-        icon: FlaskConical,
-        title: "Havuz Kimyasalları",
-        shortDesc: "Yüksek kaliteli kimyasallar ve dozaj sistemleri",
-        description: "Havuz ve proses suyu şartlandırma için yüksek kaliteli kimyasallar ve dozaj sistemleri.",
-        image: "/kimyasal.jpg",
-        features: [
-            "Klor ürünleri",
-            "pH düzenleyiciler",
-            "Yosun önleyiciler",
-            "Flokülantlar",
-            "Temizlik kimyasalları",
-            "Dozaj sistemleri",
-        ],
-    },
-    {
-        id: "isitma-sogutma",
-        icon: Sparkles,
-        title: "Isıtma ve Soğutma Sistemleri",
-        shortDesc: "Havuzlar ve tesisler için ısıtma/soğutma çözümleri",
-        description: "Havuzlar ve endüstriyel tesisler için ısıtma ve soğutma çözümleri.",
-        image: "/isitma.png",
-        features: [
-            "Havuz ısıtma sistemleri",
-            "Isı pompaları",
-            "Güneş enerjisi sistemleri",
-            "Kazan sistemleri",
-            "Soğutma sistemleri",
-            "Enerji tasarruflu çözümler",
-        ],
-    },
-    {
-        id: "otomasyon-sistemleri",
-        icon: ShieldCheck,
-        title: "Otomasyon Sistemleri",
-        shortDesc: "Akıllı otomasyon ve uzaktan kontrol çözümleri",
-        description: "Havuz ve su arıtma sistemleri için akıllı otomasyon çözümleri.",
-        image: "/otomasyon.png",
-        features: [
-            "Havuz otomasyon sistemleri",
-            "Uzaktan kontrol sistemleri",
-            "Akıllı dozaj sistemleri",
-            "Enerji yönetim sistemleri",
-            "Mobil uygulama kontrollü sistemler",
-            "Entegre otomasyon çözümleri",
-        ],
-    },
-];
+import { services } from "@/app/data/services";
 
 export default function HizmetlerimizPage() {
     const [isVisible, setIsVisible] = useState(false);
@@ -127,7 +23,7 @@ export default function HizmetlerimizPage() {
             {/* Hero Section */}
             <section className="relative min-h-[50vh] flex items-center overflow-hidden">
                 <Image
-                    src="/galeri10.jpg"
+                    src="/galeri8.jpg"
                     alt="Hizmetlerimiz"
                     fill
                     className="object-cover"
@@ -157,10 +53,10 @@ export default function HizmetlerimizPage() {
                         </p>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Services Grid Section */}
-            <section className="py-20 bg-white">
+            < section className="py-20 bg-white" >
                 <div className="max-w-7xl mx-auto px-6">
                     {/* Section Header */}
                     <div className="text-center mb-16">
@@ -232,41 +128,10 @@ export default function HizmetlerimizPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
-            {/* Quick Services Cards */}
-            <section className="py-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#0c436c] mb-4">
-                            Hizmetlerimize Hızlı Erişim
-                        </h2>
-                    </div>
+            {/* Quick Services Cards Removed by User Request */}
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {services.map((service) => (
-                            <Link
-                                key={service.id}
-                                href={`/hizmetlerimiz/${service.id}`}
-                                className="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl transition-all"
-                            >
-                                <div className="w-14 h-14 bg-[#0c436c]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#0c436c] transition-colors">
-                                    <service.icon className="text-[#0c436c] group-hover:text-white transition-colors" size={28} />
-                                </div>
-                                <h3 className="text-xl font-bold text-[#0c436c] mb-2 group-hover:text-[#3b9fc9] transition-colors">
-                                    {service.title}
-                                </h3>
-                                <p className="text-gray-600 text-sm mb-4">
-                                    {service.shortDesc}
-                                </p>
-                                <span className="inline-flex items-center gap-2 text-[#0c436c] font-medium text-sm group-hover:gap-3 transition-all">
-                                    Detaylar <ArrowRight size={16} />
-                                </span>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* CTA Section */}
             <section className="py-20 bg-[#0c436c] relative overflow-hidden">
@@ -300,6 +165,6 @@ export default function HizmetlerimizPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </div >
     );
 }
