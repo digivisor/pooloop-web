@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Search } from "lucide-react";
 
+import { Award } from "lucide-react";
+
 export default function DocumentsPage() {
     const [isOpen, setIsOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,18 +37,34 @@ export default function DocumentsPage() {
 
     return (
         <div className="bg-white min-h-screen">
-            {/* Header Section */}
-            <section className="relative bg-[#0c436c] py-24">
-    
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute inset-0 bg-[#0c436c] opacity-90" />
-                    <div className="absolute inset-0 bg-grid-white/[0.05]" />
-                </div>
-                <div className="relative max-w-7xl mx-auto px-6 text-center text-white">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Belgelerimiz</h1>
-                    <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                        Kalite standartlarına verdiğimiz önemin ve kurumsal yetkinliğimizin kanıtı olan belgelerimiz.
-                    </p>
+            {/* Hero Section with Background Image */}
+            <section className="relative min-h-[50vh] flex items-center overflow-hidden">
+                <Image
+                    src="/galeri4.jpg"
+                    alt="Belgelerimiz"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+                <div className="absolute inset-0 bg-[#0c436c]/70" />
+
+                {/* Decorative Circles */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+                <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
+                    <div className="max-w-2xl">
+                        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+                            <Award size={16} />
+                            <span>Sertifikalar & Belgeler</span>
+                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                            Belgelerimiz
+                        </h1>
+                        <p className="text-lg text-white/90 max-w-xl leading-relaxed">
+                            Kalite standartlarına verdiğimiz önemin ve kurumsal yetkinliğimizin kanıtı olan belgelerimiz.
+                        </p>
+                    </div>
                 </div>
             </section>
 
