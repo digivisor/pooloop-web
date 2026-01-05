@@ -227,7 +227,7 @@ export default function Home() {
                     {/* Features List */}
                     {service.features && (
                       <ul className="space-y-1 mb-4">
-                        {service.features.map((feature, fidx) => (
+                        {service.features.slice(0, 3).map((feature, fidx) => (
                           <li key={fidx} className="flex items-center gap-2 text-sm text-white/80">
                             <CheckCircle2 size={14} className="text-[#3b9fc9] shrink-0" />
                             <span>{feature}</span>

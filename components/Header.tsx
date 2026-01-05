@@ -10,7 +10,7 @@ const navLinks = [
     { name: "Kurumsal", path: "/kurumsal" },
     { name: "Hizmetlerimiz", path: "/hizmetlerimiz" },
     { name: "Ürünlerimiz", path: "/urunlerimiz" },
-    { name: "Referanslar", path: "/referanslar" },
+    // { name: "Referanslar", path: "/referanslar" },
     { name: "Belgelerimiz", path: "/belgelerimiz" },
     { name: "Kataloglarımız", path: "/kataloglarimiz" },    
     { name: "İletişim", path: "/iletisim" },
