@@ -534,7 +534,7 @@ export default function Home() {
               itemOne={
                 <div className="relative w-full h-full">
                   <ReactCompareSliderImage
-                    src="https://images.unsplash.com/photo-1598902108854-10e335adac99?q=80&w=1600&auto=format&fit=crop"
+                    src="/oncesi.png"
                     alt="Bakımsız Havuz"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -546,7 +546,7 @@ export default function Home() {
               itemTwo={
                 <div className="relative w-full h-full">
                   <ReactCompareSliderImage
-                    src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1600&auto=format&fit=crop"
+                    src="/sonrasi.png"
                     alt="Yenilenmiş Havuz"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />

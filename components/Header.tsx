@@ -11,6 +11,8 @@ const navLinks = [
     { name: "Hizmetlerimiz", path: "/hizmetlerimiz" },
     { name: "Ürünlerimiz", path: "/urunlerimiz" },
     { name: "Referanslar", path: "/referanslar" },
+    { name: "Belgelerimiz", path: "/belgelerimiz" },
+    { name: "Kataloglarımız", path: "/kataloglarimiz" },    
     { name: "İletişim", path: "/iletisim" },
 ];
 
@@ -43,9 +45,9 @@ export default function Header() {
                         </a>
                     </div>
                     <div className="flex items-center gap-2">
-                       
-                        <span>Türkiye&apos;nin Her Yerine Hizmet</span>
-                         <Truck size={16} className="text-[#]" />
+
+                        {/* <span>Türkiye&apos;nin Her Yerine Hizmet</span>
+                         <Truck size={16} className="text-[#]" /> */}
                     </div>
                 </div>
             </div>
@@ -85,17 +87,7 @@ export default function Header() {
                             ))}
                         </nav>
 
-                        {/* CTA Button */}
-                        <div className="hidden lg:flex items-center gap-4">
-                            <Link
-                                href="/iletisim"
-                                className="bg-[#0c436c] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1a5a8a] transition-colors"
-                            >
-                                Teklif Alın
-                            </Link>
-                        </div>
-
-                        {/* Mobile Menu Button */}
+                        {/* Mobile Menu Button - Moved to right side when CTA is gone */}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className="lg:hidden p-2 text-[#0c436c]"
@@ -122,14 +114,6 @@ export default function Header() {
                                 {link.name}
                             </Link>
                         ))}
-                        <div className="pt-4 border-t mt-4">
-                            <Link
-                                href="/iletisim"
-                                className="block text-center bg-[#0c436c] text-white px-6 py-3 rounded-lg font-medium"
-                            >
-                                Teklif Alın
-                            </Link>
-                        </div>
                     </nav>
                 </div>
             </header>

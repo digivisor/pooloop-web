@@ -1,25 +1,36 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function WhatsAppButton() {
-    const [isVisible, setIsVisible] = useState(false);
+    const pathname = usePathname();
+    const isHomePage = pathname === "/";
+
+    const [isVisible, setIsVisible] = useState(!isHomePage); // On other pages, visible immediately
     const [bottomOffset, setBottomOffset] = useState(24);
 
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const heroHeight = window.innerHeight * 0.8;
-            setIsVisible(scrollY > heroHeight);
 
-            // Calculate distance from bottom of page
+            // Only show after hero section on homepage
+            if (isHomePage) {
+                const heroHeight = window.innerHeight * 0.8;
+                setIsVisible(scrollY > heroHeight);
+            } else {
+                // On other pages, always visible
+                setIsVisible(true);
+            }
+
+            // Footer offset: Same behavior on ALL pages
             const scrollHeight = document.documentElement.scrollHeight;
             const clientHeight = window.innerHeight;
             const distanceFromBottom = scrollHeight - (scrollY + clientHeight);
 
             // When near footer (within 80px of bottom), push button up
             if (distanceFromBottom < 80) {
-                setBottomOffset(50 - distanceFromBottom + 24);
+                setBottomOffset(80 - distanceFromBottom + 24);
             } else {
                 setBottomOffset(24);
             }
@@ -29,7 +40,7 @@ export default function WhatsAppButton() {
         handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [isHomePage]);
 
     if (!isVisible) return null;
 
