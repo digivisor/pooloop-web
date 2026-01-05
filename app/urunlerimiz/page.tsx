@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { X, FlaskConical, Filter, Search, CheckCircle2 } from "lucide-react";
+import { X, FlaskConical, Filter, Search, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 // Product interface
 interface PoolChemical {
@@ -171,21 +171,6 @@ export default function ProductsPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedProduct, setSelectedProduct] = useState<PoolChemical | null>(null);
     const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
-    const [isFixed, setIsFixed] = useState(false);
-    const sectionRef = useRef<HTMLElement>(null);
-
-    // Handle scroll for sticky sidebar
-    useEffect(() => {
-        const handleScroll = () => {
-            if (sectionRef.current) {
-                const rect = sectionRef.current.getBoundingClientRect();
-                setIsFixed(rect.top <= 112); // 112px = ~28 * 4 (top-28)
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     // Filter products
     const filteredProducts = poolChemicals.filter(product => {
@@ -304,8 +289,8 @@ export default function ProductsPage() {
 
                     {/* Desktop Layout - Flex */}
                     <div className="flex gap-8 items-start">
-                        {/* Sidebar - Sticky */}
-                        <aside className="hidden lg:block w-72 shrink-0 h-fit sticky top-28">
+                        {/* Sidebar - Static (Normal Flow) */}
+                        <aside className="hidden lg:block w-72 shrink-0 h-fit">
                             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                                 <h3 className="text-lg font-bold text-[#0c436c] mb-4">Kategoriler</h3>
 
@@ -371,7 +356,7 @@ export default function ProductsPage() {
                                     <div
                                         key={product.id}
                                         onClick={() => openModal(product)}
-                                        className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 cursor-pointer"
+                                        className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 cursor-pointer flex flex-col h-full"
                                     >
                                         {/* Product Image */}
                                         <div className="relative aspect-square bg-white overflow-hidden">
@@ -387,14 +372,21 @@ export default function ProductsPage() {
                                             </div>
                                         </div>
 
-                                        {/* Product Info */}
-                                        <div className="p-5 bg-gray-50">
+                                        {/* Product Info - flex-grow to push button down */}
+                                        <div className="p-5 bg-gray-50 flex-grow">
                                             <h3 className="font-semibold text-[#0c436c] mb-2 line-clamp-2 group-hover:text-[#3b9fc9] transition-colors">
                                                 {product.name}
                                             </h3>
                                             <p className="text-sm text-gray-500 line-clamp-2">
                                                 {product.description}
                                             </p>
+                                        </div>
+
+                                        {/* Detaylar Button - always at bottom */}
+                                        <div className="p-4 pt-0 bg-gray-50 mt-auto">
+                                            <button className="w-full py-3 border border-[#3b9fc9] text-[#3b9fc9] rounded-xl font-medium hover:bg-[#3b9fc9] hover:text-white transition-colors">
+                                                Detaylar
+                                            </button>
                                         </div>
                                     </div>
                                 ))}
@@ -420,11 +412,11 @@ export default function ProductsPage() {
                     onClick={closeModal}
                 >
                     <div
-                        className="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl"
+                        className="bg-gray-50 rounded-3xl w-full max-w-4xl shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Modal Header */}
-                        <div className="sticky top-0 bg-white border-b border-gray-100 p-4 flex items-center justify-between z-10">
+                        <div className="sticky top-0 bg-gray-50 border-b border-gray-200 p-4 flex items-center justify-between z-10">
                             <span className="bg-[#0c436c] text-white text-sm font-medium px-4 py-1.5 rounded-full">
                                 {selectedProduct.category}
                             </span>
@@ -440,7 +432,7 @@ export default function ProductsPage() {
                         <div className="p-6 md:p-8">
                             <div className="grid md:grid-cols-2 gap-8">
                                 {/* Product Image */}
-                                <div className="relative aspect-square bg-gray-50 rounded-2xl overflow-hidden">
+                                <div className="relative aspect-square bg-white rounded-2xl overflow-hidden">
                                     <Image
                                         src={selectedProduct.image}
                                         alt={selectedProduct.name}
@@ -473,6 +465,22 @@ export default function ProductsPage() {
                                             </ul>
                                         </div>
                                     )}
+                                </div>
+                            </div>
+
+                            {/* Contact Info - Below grid */}
+                            <div className="mt-4 pt-4 border-t border-gray-100">
+                                <div className="flex items-center justify-between gap-4 bg-blue-50/50 rounded-xl p-4 border border-blue-100">
+                                    <p className="text-[#0c436c] text-sm font-medium flex gap-2 items-center">
+                                        <Info size={18} className="shrink-0" />
+                                        <span>Fiyat bilgisi ve detaylı teknik destek almak için lütfen satış temsilcimizle iletişime geçiniz.</span>
+                                    </p>
+                                    <a
+                                        href="/iletisim"
+                                        className="shrink-0 bg-[#0c436c] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#0a3656] transition-colors"
+                                    >
+                                        İletişim
+                                    </a>
                                 </div>
                             </div>
                         </div>
