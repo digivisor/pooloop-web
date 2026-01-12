@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, User } from "lucide-react";
 
@@ -57,8 +57,27 @@ const testimonials = [
 
 export default function TestimonialsSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [itemsPerView, setItemsPerView] = useState(1);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1024) {
+                setItemsPerView(3);
+            } else if (window.innerWidth >= 768) {
+                setItemsPerView(2);
+            } else {
+                setItemsPerView(1);
+            }
+        };
+
+        handleResize(); // Initial check
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const nextSlide = () => {
+        // Ensure we don't scroll past the end based on view count
+        // For infinite loop effect:
         setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     };
 
@@ -86,84 +105,91 @@ export default function TestimonialsSlider() {
                 </div>
 
                 {/* Slider Container */}
-                <div className="flex items-center gap-4">
-                    {/* Left Arrow */}
-                    <button
-                        onClick={prevSlide}
-                        className="shrink-0 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#0c436c] hover:text-white transition-colors"
-                    >
-                        <ChevronLeft size={24} />
-                    </button>
-
-                    {/* Carousel Track */}
-                    <div className="flex-1 overflow-hidden py-2">
-                        <div
-                            className="flex transition-transform duration-500 ease-in-out"
-                            style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
+                <div className="relative">
+                    <div className="flex items-center gap-4">
+                        {/* Left Arrow - Hidden on Mobile */}
+                        <button
+                            onClick={prevSlide}
+                            className="hidden md:flex shrink-0 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center hover:bg-[#0c436c] hover:text-white transition-colors z-10"
                         >
-                            {testimonials.map((testimonial, index) => (
-                                <div
-                                    key={index}
-                                    className="w-1/3 shrink-0 px-3"
-                                >
-                                    <div className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 relative overflow-hidden h-full">
-                                        {/* Quote Icon */}
-                                        <div className="absolute top-4 right-4 text-[#3b9fc9]/20 text-5xl font-serif">"</div>
+                            <ChevronLeft size={24} />
+                        </button>
 
-                                        {/* Project Tag */}
-                                        <div className="inline-block bg-[#0c436c] text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                                            {testimonial.project}
-                                        </div>
+                        {/* Carousel Track */}
+                        <div className="flex-1 overflow-hidden py-2 px-1">
+                            <div
+                                className="flex transition-transform duration-500 ease-in-out"
+                                style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+                            >
+                                {testimonials.map((testimonial, index) => (
+                                    <div
+                                        key={index}
+                                        className="shrink-0 px-3 transition-all duration-300"
+                                        style={{ width: `${100 / itemsPerView}%` }}
+                                    >
+                                        <div className="group bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 relative overflow-hidden h-full flex flex-col items-center text-center">
+                                            {/* Quote Icon */}
+                                            <div className="absolute top-4 right-4 text-[#3b9fc9]/10 text-6xl font-serif font-black leading-none">"</div>
 
-                                        {/* Quote */}
-                                        <p className="text-gray-600 text-sm leading-relaxed mb-5 relative z-10">
-                                            "{testimonial.quote}"
-                                        </p>
+                                            {/* Project Tag */}
+                                            <div className="inline-block bg-[#0c436c] text-white text-xs font-semibold px-3 py-1 rounded-full mb-6 z-10">
+                                                {testimonial.project}
+                                            </div>
 
-                                        {/* Author */}
-                                        <div className="flex items-center gap-3">
-                                            <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 border-2 ${testimonial.gender === 'female'
+                                            {/* Quote */}
+                                            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 relative z-10">
+                                                "{testimonial.quote}"
+                                            </p>
+
+                                            {/* Spacer */}
+                                            <div className="flex-1" />
+
+                                            {/* Author */}
+                                            <div className="flex flex-col items-center gap-2 z-10">
+                                                <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 border-2 mb-1 ${testimonial.gender === 'female'
                                                     ? 'bg-pink-50 border-pink-100 text-pink-500'
                                                     : 'bg-blue-50 border-blue-100 text-blue-500'
-                                                }`}>
-                                                <User size={24} />
+                                                    }`}>
+                                                    <User size={28} />
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-[#0c436c] text-sm md:text-base">{testimonial.name}</h4>
+                                                    <p className="text-xs text-gray-500 mb-0.5">{testimonial.role}</p>
+                                                    <p className="text-xs text-[#3b9fc9] font-medium">{testimonial.location}</p>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <h4 className="font-bold text-[#0c436c] text-sm">{testimonial.name}</h4>
-                                                <p className="text-xs text-gray-500">{testimonial.role}</p>
-                                                <p className="text-xs text-[#3b9fc9]">{testimonial.location}</p>
-                                            </div>
-                                        </div>
 
-                                        {/* Hover decoration */}
-                                        <div className="absolute bottom-0 left-0 w-full h-1 bg-[#3b9fc9] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                                            {/* Hover decoration */}
+                                            <div className="absolute bottom-0 left-0 w-full h-1 bg-[#3b9fc9] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
+
+                        {/* Right Arrow - Hidden on Mobile */}
+                        <button
+                            onClick={nextSlide}
+                            className="hidden md:flex shrink-0 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center hover:bg-[#0c436c] hover:text-white transition-colors z-10"
+                        >
+                            <ChevronRight size={24} />
+                        </button>
                     </div>
 
-                    {/* Right Arrow */}
-                    <button
-                        onClick={nextSlide}
-                        className="shrink-0 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#0c436c] hover:text-white transition-colors"
-                    >
-                        <ChevronRight size={24} />
-                    </button>
-                </div>
-
-                {/* Dots */}
-                <div className="flex justify-center gap-2 mt-8">
-                    {testimonials.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setCurrentIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
-                                ? "bg-[#0c436c] w-6"
-                                : "bg-gray-300 hover:bg-gray-400"
-                                }`}
-                        />
-                    ))}
+                    {/* Dots - Visible Control for Mobile */}
+                    <div className="flex justify-center gap-2 mt-8">
+                        {testimonials.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
+                                    ? "bg-[#0c436c] w-6"
+                                    : "bg-gray-300 hover:bg-gray-400"
+                                    }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

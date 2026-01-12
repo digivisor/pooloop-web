@@ -95,7 +95,7 @@ export default function Home() {
       `}</style>
 
       {/* Hero Section - Interactive Split Technology */}
-      <section className="bg-black relative z-10 w-full min-h-screen lg:h-screen flex flex-col pt-20 lg:pt-0">
+      <section className="bg-black relative z-10 w-full min-h-screen lg:h-screen flex flex-col lg:pt-0">
         <div className="flex flex-col lg:flex-row h-full">
           {/* Item 1: Fiberglass */}
           <div className="group relative w-full lg:flex-1 hover:lg:flex-[2] transition-[flex] duration-700 ease-in-out overflow-hidden h-[33vh] lg:h-full border-b lg:border-b-0 lg:border-r border-white/10">
@@ -425,7 +425,7 @@ export default function Home() {
               "/referanslar/ref8.JPG",
               "/referanslar/ref21.JPG",
               "/referanslar/ref19.JPG",
-              
+
             ]}
           />
         </div>
