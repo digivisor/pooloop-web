@@ -116,28 +116,30 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
 
             <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-              <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="flex items-start justify-between mb-4 transition-transform duration-500">
                 <span className="text-[#3b9fc9] font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                   {t('hero_fiber_subtitle')}
                 </span>
                 <Waves className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
               </div>
 
-              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
                 {t('hero_fiber_title')}
               </h3>
 
-              <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
-                  {t('hero_fiber_desc')}
-                </p>
-                <Link
-                  href="/hizmetlerimiz/fiberglass-havuz-sistemleri"
-                  className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
-                >
-                  <span className="font-medium">{t('hero_btn_detail')}</span>
-                  <ArrowRight size={18} />
-                </Link>
+              <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-out opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="overflow-hidden">
+                  <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed pt-2">
+                    {t('hero_fiber_desc')}
+                  </p>
+                  <Link
+                    href="/hizmetlerimiz/fiberglass-havuz-sistemleri"
+                    className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
+                  >
+                    <span className="font-medium">{t('hero_btn_detail')}</span>
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -154,28 +156,30 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
 
             <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-              <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="flex items-start justify-between mb-4 transition-transform duration-500">
                 <span className="text-white font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                   {t('hero_concrete_subtitle')}
                 </span>
                 <Wrench className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
               </div>
 
-              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
                 {t('hero_concrete_title')}
               </h3>
 
-              <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
-                  {t('hero_concrete_desc')}
-                </p>
-                <Link
-                  href="/hizmetlerimiz/betonarme-havuz-sistemleri"
-                  className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
-                >
-                  <span className="font-medium">Sistemi İncele</span>
-                  <ArrowRight size={18} />
-                </Link>
+              <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-out opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="overflow-hidden">
+                  <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed pt-2">
+                    {t('hero_concrete_desc')}
+                  </p>
+                  <Link
+                    href="/hizmetlerimiz/betonarme-havuz-sistemleri"
+                    className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
+                  >
+                    <span className="font-medium">Sistemi İncele</span>
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -192,28 +196,30 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
 
             <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-              <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="flex items-start justify-between mb-4 transition-transform duration-500">
                 <span className="text-[#3b9fc9] font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                   {t('hero_liner_subtitle')}
                 </span>
                 <Droplets className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
               </div>
 
-              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
                 {t('hero_liner_title')}
               </h3>
 
-              <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
-                  {t('hero_liner_desc')}
-                </p>
-                <Link
-                  href="/hizmetlerimiz/liner-havuz-sistemleri"
-                  className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
-                >
-                  <span className="font-medium">Sistemi İncele</span>
-                  <ArrowRight size={18} />
-                </Link>
+              <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-out opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="overflow-hidden">
+                  <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed pt-2">
+                    {t('hero_liner_desc')}
+                  </p>
+                  <Link
+                    href="/hizmetlerimiz/liner-havuz-sistemleri"
+                    className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
+                  >
+                    <span className="font-medium">Sistemi İncele</span>
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

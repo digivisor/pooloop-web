@@ -38,6 +38,14 @@ const catalogs: Catalog[] = [
         embedUrl: "https://heyzine.com/flip-book/c780a740b0.html",
         pdfUrl: "#",
     },
+    {
+        id: 4,
+        name: "Pooloop Genel Katalog",
+        description: "Tüm ürün gruplarımız, teknik özellikler ve referans projelerimiz.",
+        cover: "/banner-3.png",
+        embedUrl: "https://heyzine.com/flip-book/e28f001b0f.html",
+        pdfUrl: "#",
+    },
 ];
 
 export default function CatalogsPage() {

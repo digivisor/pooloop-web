@@ -5,9 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, Mail, Truck } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-
-
-
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
@@ -79,8 +76,8 @@ export default function Header() {
     return (
         <>
             {/* Top Bar - Hidden on Homepage */}
-            {pathname !== '/' && (
-                <div className="hidden lg:block bg-[#0c436c] text-white py-2">
+            {/* {pathname !== '/' && (
+                <div className="hidden xl:block bg-[#0c436c] text-white py-2">
                     <div className="max-w-[1920px] mx-auto px-6 lg:px-12 flex justify-between items-center text-sm">
                         <div className="flex items-center gap-6">
                             <a href="tel:+902121234567" className="flex items-center gap-2 hover:text-[#3b9fc9] transition-colors">
@@ -94,7 +91,7 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-            )}
+            )} */}
 
             {/* Main Header */}
             <header
@@ -106,7 +103,7 @@ export default function Header() {
                 <div className="max-w-[1920px] mx-auto px-6 lg:px-24">
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center z-50">
+                        <Link href="/" className="flex items-center z-50 shrink-0">
                             <Image
                                 src="/logo-pooloop.png"
                                 alt="Pooloop Logo"
@@ -118,7 +115,7 @@ export default function Header() {
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center gap-4">
+                        <div className="hidden xl:flex items-center gap-4">
                             <nav className="flex items-center gap-2">
                                 {navLinks.map((link) => (
                                     <Link
@@ -186,7 +183,7 @@ export default function Header() {
                         {/* Mobile Menu Button - Hamburger */}
                         <button
                             onClick={() => setIsMobileMenuOpen(true)}
-                            className="lg:hidden p-2 text-[#0c436c]"
+                            className="xl:hidden p-2 text-[#0c436c]"
                             aria-label="Menu"
                         >
                             <Menu size={28} />
@@ -197,14 +194,14 @@ export default function Header() {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 lg:hidden ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+                className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 xl:hidden ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
                     }`}
                 onClick={() => setIsMobileMenuOpen(false)}
             />
 
             {/* Mobile Menu Sidebar (Right Drawer) */}
             <div
-                className={`fixed inset-y-0 right-0 w-[280px] bg-white shadow-2xl z-[60] transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                className={`fixed inset-y-0 right-0 w-[280px] bg-white shadow-2xl z-[60] transform transition-transform duration-300 ease-in-out xl:hidden flex flex-col ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
                     }`}
             >
                 {/* Header with Close Button */}

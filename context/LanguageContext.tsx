@@ -27,11 +27,11 @@ export const translations: Record<Language, Record<string, string>> = {
 
         // Hero
         hero_fiber_subtitle: "HIZLI KURULUM",
-        hero_fiber_title: "Fiberglass Sistemler",
+        hero_fiber_title: "Fiberglass\nSistemler",
         hero_concrete_subtitle: "ÖZEL TASARIM",
-        hero_concrete_title: "Betonarme Havuzlar",
+        hero_concrete_title: "Betonarme\nHavuzlar",
         hero_liner_subtitle: "EKONOMİK & ESTETİK",
-        hero_liner_title: "Liner Havuz Sistemleri",
+        hero_liner_title: "Liner Havuz\nSistemleri",
         hero_btn_detail: "Detaylı Bilgi",
         hero_fiber_desc: "Hızlı ve pratik kurulum, sızdırmaz yekpare gövde ve uzun ömürlü kullanım.",
         hero_concrete_desc: "Hayalinizdeki formu gerçeğe dönüştüren, tamamen size özel ve sınırsız tasarım özgürlüğü.",
@@ -138,11 +138,11 @@ export const translations: Record<Language, Record<string, string>> = {
 
         // Hero
         hero_fiber_subtitle: "FAST INSTALLATION",
-        hero_fiber_title: "Fiberglass Systems",
+        hero_fiber_title: "Fiberglass\nSystems",
         hero_concrete_subtitle: "CUSTOM DESIGN",
-        hero_concrete_title: "Concrete Pools",
+        hero_concrete_title: "Concrete\nPools",
         hero_liner_subtitle: "ECONOMIC & AESTHETIC",
-        hero_liner_title: "Liner Pool Systems",
+        hero_liner_title: "Liner Pool\nSystems",
         hero_btn_detail: "Detailed Info",
         hero_fiber_desc: "Fast and practical installation, leak-proof monolithic body and long-lasting use.",
         hero_concrete_desc: "Turning the form of your dreams into reality, completely custom and unlimited design freedom.",
