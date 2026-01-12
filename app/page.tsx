@@ -437,7 +437,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Feed Section - Social */}
+      {/* Instagram Feed Section - Socials */}
       <InstagramFeed />
 
       <section className="py-20 bg-[#0c436c] relative overflow-hidden">

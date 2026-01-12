@@ -86,6 +86,7 @@ export const translations: Record<Language, Record<string, string>> = {
         testimonials_desc: "Yıllar içinde yüzlerce projeye imza attık. İşte bazı referanslarımız.",
 
         // Footer
+        footer_created_by: "created by",
         footer_desc: "Havuz sistemleri ve kimyasalları alanında profesyonel çözümler sunuyoruz. Kalite ve müşteri memnuniyeti bizim önceliğimizdir.",
         footer_quick_links: "Hızlı Bağlantılar",
         footer_services: "Hizmetlerimiz",
@@ -196,6 +197,7 @@ export const translations: Record<Language, Record<string, string>> = {
         testimonials_desc: "We have signed hundreds of projects over the years. Here are some of our references.",
 
         // Footer
+        footer_created_by: "created by",
         footer_desc: "We offer professional solutions in the field of pool systems and chemicals. Quality and customer satisfaction are our priority.",
         footer_quick_links: "Quick Links",
         footer_services: "Our Services",
