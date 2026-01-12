@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 // Markalar klasöründeki tüm logolar
 const brands = [
@@ -20,15 +21,16 @@ const brands = [
 ];
 
 export default function BrandsSlider() {
+    const { t } = useLanguage();
     return (
         <section className="py-16 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-10">
                     <h2 className="text-2xl md:text-3xl font-bold text-[#0c436c] mb-2">
-                        Güçlü Markalarla İş Birliği
+                        {t('brands_title')}
                     </h2>
                     <p className="text-[#3b9fc9] font-medium">
-                        Çözüm Ortaklarımız
+                        {t('brands_subtitle')}
                     </p>
                 </div>
 

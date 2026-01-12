@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { Instagram } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function InstagramFeed() {
+    const { t } = useLanguage();
     const images = [
         "/insta1.jpg",
         "/insta2.jpg",
@@ -30,9 +32,7 @@ export default function InstagramFeed() {
                     {/* Right Side: Description & Button */}
                     <div className="lg:max-w-xl">
                         <p className="text-gray-600 mb-6 leading-relaxed">
-                            Instagram'da bizi takip edin ve Pooloop'un seçkin projelerini keşfedin.
-                            En yeni havuz tasarımlarımızı, bakım ipuçlarını ve mutlu müşterilerimizin
-                            deneyimlerini paylaşıyoruz.
+                            {t('insta_desc')}
                         </p>
                         <a
                             href="https://instagram.com"
@@ -41,7 +41,7 @@ export default function InstagramFeed() {
                             className="inline-flex items-center gap-2 bg-[#0c436c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3b9fc9] transition-colors duration-300"
                         >
                             <Instagram size={20} />
-                            Takip Et
+                            {t('insta_btn')}
                         </a>
                     </div>
                 </div>

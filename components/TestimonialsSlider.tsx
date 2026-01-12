@@ -3,59 +3,61 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, User } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 const testimonials = [
     {
         name: "Ahmet Yılmaz",
-        role: "Villa Sahibi",
-        location: "İstanbul, Beykoz",
+        role: { TR: "Villa Sahibi", EN: "Villa Owner" },
+        location: { TR: "İstanbul, Beykoz", EN: "Istanbul, Beykoz" },
         gender: "male",
-        quote: "Villam için hayal ettiğim havuzu tam istediğim gibi inşa ettiler.",
-        project: "Infinity Havuz"
+        quote: { TR: "Villam için hayal ettiğim havuzu tam istediğim gibi inşa ettiler.", EN: "They built the pool of my dreams for my villa exactly as I wanted." },
+        project: { TR: "Infinity Havuz", EN: "Infinity Pool" }
     },
     {
         name: "Seda Kaya",
-        role: "Otel Müdürü",
-        location: "Antalya, Belek",
+        role: { TR: "Otel Müdürü", EN: "Hotel Manager" },
+        location: { TR: "Antalya, Belek", EN: "Antalya, Belek" },
         gender: "female",
-        quote: "Otelimizin havuzlarının bakımını düzenli olarak yapıyorlar.",
-        project: "Otel Bakımı"
+        quote: { TR: "Otelimizin havuzlarının bakımını düzenli olarak yapıyorlar.", EN: "They maintain our hotel pools regularly." },
+        project: { TR: "Otel Bakımı", EN: "Hotel Maintenance" }
     },
     {
         name: "Mehmet Demir",
-        role: "Site Yöneticisi",
-        location: "Ankara, Çankaya",
+        role: { TR: "Site Yöneticisi", EN: "Site Manager" },
+        location: { TR: "Ankara, Çankaya", EN: "Ankara, Cankaya" },
         gender: "male",
-        quote: "Sitemizin olimpik havuzunu mükemmel bir şekilde yenilediler.",
-        project: "Renovasyon"
+        quote: { TR: "Sitemizin olimpik havuzunu mükemmel bir şekilde yenilediler.", EN: "They renovated our site's olympic pool perfectly." },
+        project: { TR: "Renovasyon", EN: "Renovasyon" }
     },
     {
         name: "Zeynep Arslan",
-        role: "Ev Sahibi",
-        location: "İzmir, Çeşme",
+        role: { TR: "Ev Sahibi", EN: "Home Owner" },
+        location: { TR: "İzmir, Çeşme", EN: "Izmir, Cesme" },
         gender: "female",
-        quote: "Yazlık evimize prefabrik havuz yaptırdık, çok memnunuz.",
-        project: "Prefabrik Havuz"
+        quote: { TR: "Yazlık evimize prefabrik havuz yaptırdık, çok memnunuz.", EN: "We had a prefabricated pool built for our summer house, we are very pleased." },
+        project: { TR: "Prefabrik Havuz", EN: "Prefabricated Pool" }
     },
     {
         name: "Can Yıldırım",
-        role: "Spor Tesisi Müdürü",
-        location: "Bursa, Nilüfer",
+        role: { TR: "Spor Tesisi Müdürü", EN: "Sports Facility Manager" },
+        location: { TR: "Bursa, Nilüfer", EN: "Bursa, Nilufer" },
         gender: "male",
-        quote: "Yarı olimpik havuzumuzun tüm kimyasal ihtiyaçlarını karşılıyorlar.",
-        project: "Kimyasal Tedarik"
+        quote: { TR: "Yarı olimpik havuzumuzun tüm kimyasal ihtiyaçlarını karşılıyorlar.", EN: "They meet all the chemical needs of our semi-olympic pool." },
+        project: { TR: "Kimyasal Tedarik", EN: "Chemical Supply" }
     },
     {
         name: "Ayşe Öztürk",
-        role: "Butik Otel Sahibi",
-        location: "Muğla, Bodrum",
+        role: { TR: "Butik Otel Sahibi", EN: "Boutique Hotel Owner" },
+        location: { TR: "Muğla, Bodrum", EN: "Mugla, Bodrum" },
         gender: "female",
-        quote: "Her sezon açılış öncesi havuzumuzu hazır hale getiriyorlar.",
-        project: "Sezonluk Bakım"
+        quote: { TR: "Her sezon açılış öncesi havuzumuzu hazır hale getiriyorlar.", EN: "They get our pool ready before every season opening." },
+        project: { TR: "Sezonluk Bakım", EN: "Seasonal Maintenance" }
     }
 ];
 
 export default function TestimonialsSlider() {
+    const { language, t } = useLanguage();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsPerView, setItemsPerView] = useState(1);
 
@@ -94,13 +96,13 @@ export default function TestimonialsSlider() {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-14">
                     <span className="inline-block text-[#3b9fc9] font-semibold text-sm tracking-wider uppercase mb-3">
-                        Referanslarımız
+                        {t('testimonials_subtitle')}
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0c436c] mb-4">
-                        Mutlu Müşterilerimiz
+                        {t('testimonials_title')}
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
-                        Yıllar içinde yüzlerce projeye imza attık. İşte bazı referanslarımız.
+                        {t('testimonials_desc')}
                     </p>
                 </div>
 
@@ -133,12 +135,12 @@ export default function TestimonialsSlider() {
 
                                             {/* Project Tag */}
                                             <div className="inline-block bg-[#0c436c] text-white text-xs font-semibold px-3 py-1 rounded-full mb-6 z-10">
-                                                {testimonial.project}
+                                                {testimonial.project[language]}
                                             </div>
 
                                             {/* Quote */}
                                             <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 relative z-10">
-                                                "{testimonial.quote}"
+                                                "{testimonial.quote[language]}"
                                             </p>
 
                                             {/* Spacer */}
@@ -154,8 +156,8 @@ export default function TestimonialsSlider() {
                                                 </div>
                                                 <div>
                                                     <h4 className="font-bold text-[#0c436c] text-sm md:text-base">{testimonial.name}</h4>
-                                                    <p className="text-xs text-gray-500 mb-0.5">{testimonial.role}</p>
-                                                    <p className="text-xs text-[#3b9fc9] font-medium">{testimonial.location}</p>
+                                                    <p className="text-xs text-gray-500 mb-0.5">{testimonial.role[language]}</p>
+                                                    <p className="text-xs text-[#3b9fc9] font-medium">{testimonial.location[language]}</p>
                                                 </div>
                                             </div>
 

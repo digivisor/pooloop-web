@@ -4,17 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, Mail, Truck } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
-const navLinks = [
-    { name: "Anasayfa", path: "/" },
-    { name: "Kurumsal", path: "/kurumsal" },
-    { name: "Hizmetlerimiz", path: "/hizmetlerimiz" },
-    { name: "Ürünlerimiz", path: "/urunlerimiz" },
-    { name: "Referanslar", path: "/referanslar" },
-    { name: "Belgelerimiz", path: "/belgelerimiz" },
-    { name: "Kataloglar", path: "/kataloglarimiz" },
-    { name: "İletişim", path: "/iletisim" },
-];
+
 
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
@@ -50,8 +42,20 @@ const flags = {
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [lang, setLang] = useState<"TR" | "EN">("TR");
+    const { language, setLanguage, t } = useLanguage();
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+
+    const navLinks = [
+        { name: t('nav_home'), path: "/" },
+        { name: t('nav_corporate'), path: "/kurumsal" },
+        { name: t('nav_services'), path: "/hizmetlerimiz" },
+        { name: t('nav_products'), path: "/urunlerimiz" },
+        { name: t('nav_references'), path: "/referanslar" },
+        { name: t('nav_documents'), path: "/belgelerimiz" },
+        { name: t('nav_catalogs'), path: "/kataloglarimiz" },
+        { name: t('nav_contact'), path: "/iletisim" },
+    ];
+
     const pathname = usePathname();
 
     useEffect(() => {
@@ -137,8 +141,8 @@ export default function Header() {
                                     onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
                                     className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
                                 >
-                                    {flags[lang]}
-                                    <span className="text-[#0c436c] font-medium text-sm">{lang}</span>
+                                    {flags[language]}
+                                    <span className="text-[#0c436c] font-medium text-sm">{language}</span>
                                     <ChevronDown size={14} className={`text-gray-500 transition-transform ${isLangMenuOpen ? 'rotate-180' : ''}`} />
                                 </button>
 
@@ -151,25 +155,25 @@ export default function Header() {
                                         <div className="absolute right-0 top-full mt-2 w-32 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-20">
                                             <button
                                                 onClick={() => {
-                                                    setLang("TR");
+                                                    setLanguage("TR");
                                                     setIsLangMenuOpen(false);
                                                 }}
                                                 className="w-full flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition-colors group"
                                             >
                                                 {flags.TR}
-                                                <span className={`text-sm ${lang === 'TR' ? 'text-[#0c436c] font-bold' : 'text-gray-600 group-hover:text-[#0c436c]'}`}>
+                                                <span className={`text-sm ${language === 'TR' ? 'text-[#0c436c] font-bold' : 'text-gray-600 group-hover:text-[#0c436c]'}`}>
                                                     Türkçe
                                                 </span>
                                             </button>
                                             <button
                                                 onClick={() => {
-                                                    setLang("EN");
+                                                    setLanguage("EN");
                                                     setIsLangMenuOpen(false);
                                                 }}
                                                 className="w-full flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition-colors group"
                                             >
                                                 {flags.EN}
-                                                <span className={`text-sm ${lang === 'EN' ? 'text-[#0c436c] font-bold' : 'text-gray-600 group-hover:text-[#0c436c]'}`}>
+                                                <span className={`text-sm ${language === 'EN' ? 'text-[#0c436c] font-bold' : 'text-gray-600 group-hover:text-[#0c436c]'}`}>
                                                     English
                                                 </span>
                                             </button>
@@ -205,7 +209,7 @@ export default function Header() {
             >
                 {/* Header with Close Button */}
                 <div className="p-6 flex items-center justify-between border-b border-gray-100 bg-white">
-                    <span className="text-lg font-bold text-[#0c436c]">Menü</span>
+                    <span className="text-lg font-bold text-[#0c436c]">{t('menu_title')}</span>
                     <button
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="p-2 -mr-2 text-gray-500 hover:text-[#0c436c] transition-colors"
@@ -232,8 +236,8 @@ export default function Header() {
                 <div className="p-6 border-t border-gray-100 space-y-6 bg-white">
                     <div className="grid grid-cols-2 gap-3">
                         <button
-                            onClick={() => setLang("TR")}
-                            className={`flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all border ${lang === "TR"
+                            onClick={() => setLanguage("TR")}
+                            className={`flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all border ${language === "TR"
                                 ? "bg-[#e8f4f8] border-[#0c436c] text-[#0c436c] font-bold"
                                 : "border-gray-200 text-gray-600 hover:border-gray-300"
                                 }`}
@@ -242,8 +246,8 @@ export default function Header() {
                             <span className="text-sm">Türkçe</span>
                         </button>
                         <button
-                            onClick={() => setLang("EN")}
-                            className={`flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all border ${lang === "EN"
+                            onClick={() => setLanguage("EN")}
+                            className={`flex items-center justify-center gap-2 px-3 py-2 rounded-xl transition-all border ${language === "EN"
                                 ? "bg-[#e8f4f8] border-[#0c436c] text-[#0c436c] font-bold"
                                 : "border-gray-200 text-gray-600 hover:border-gray-300"
                                 }`}

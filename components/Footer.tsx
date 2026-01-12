@@ -4,28 +4,31 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube, ArrowUp } from "lucide-react";
 
-const quickLinks = [
-    { name: "Anasayfa", path: "/" },
-    { name: "Kurumsal", path: "/kurumsal" },
-    { name: "Hizmetlerimiz", path: "/hizmetlerimiz" },
-    { name: "Ürünlerimiz", path: "/urunlerimiz" },
-    { name: "Belgeler", path: "/belgelerimiz" },
-    { name: "Referanslar", path: "/referanslar" },
-    { name: "İletişim", path: "/iletisim" },
-];
-
-const services = [
-    { name: "Fiberglass Havuz Sistemleri", path: "/hizmetlerimiz/fiberglass-havuz-sistemleri" },
-    { name: "Betonarme Havuz Sistemleri", path: "/hizmetlerimiz/betonarme-havuz-sistemleri" },
-    { name: "Liner Havuz Sistemleri", path: "/hizmetlerimiz/liner-havuz-sistemleri" },
-    { name: "Havuz Sistemleri", path: "/hizmetlerimiz/havuz-sistemleri" },
-    { name: "Havuz Kimyasalları", path: "/hizmetlerimiz/havuz-kimyasallari" },
-    { name: "Su Arıtma Sistemleri", path: "hizmetlerimiz/su-aritma-sistemleri" },
-    { name: "Teknik Servis", path: "/hizmetlerimiz/teknik-servis" },
-
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
+
+    const quickLinks = [
+        { name: t('nav_home'), path: "/" },
+        { name: t('nav_corporate'), path: "/kurumsal" },
+        { name: t('nav_services'), path: "/hizmetlerimiz" },
+        { name: t('nav_products'), path: "/urunlerimiz" },
+        { name: t('nav_documents'), path: "/belgelerimiz" },
+        { name: t('nav_references'), path: "/referanslar" },
+        { name: t('nav_contact'), path: "/iletisim" },
+    ];
+
+    const services = [
+        { name: t('service_fiber'), path: "/hizmetlerimiz/fiberglass-havuz-sistemleri" },
+        { name: t('service_concrete'), path: "/hizmetlerimiz/betonarme-havuz-sistemleri" },
+        { name: t('service_liner'), path: "/hizmetlerimiz/liner-havuz-sistemleri" },
+        { name: t('service_pool_systems'), path: "/hizmetlerimiz/havuz-sistemleri" },
+        { name: t('service_chemicals'), path: "/hizmetlerimiz/havuz-kimyasallari" },
+        { name: t('service_treatment'), path: "/hizmetlerimiz/su-aritma-sistemleri" }, // Fixed path
+        { name: t('service_tech'), path: "/hizmetlerimiz/teknik-servis" },
+    ];
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
@@ -45,8 +48,7 @@ export default function Footer() {
                             className="h-14 w-auto brightness-0 invert"
                         />
                         <p className="text-white/80 leading-relaxed">
-                            Havuz sistemleri ve kimyasalları alanında profesyonel çözümler sunuyoruz.
-                            Kalite ve müşteri memnuniyeti bizim önceliğimizdir.
+                            {t('footer_desc')}
                         </p>
                         <div className="flex items-center gap-3">
                             <a
@@ -79,7 +81,7 @@ export default function Footer() {
                     {/* Quick Links */}
                     <div>
                         <h3 className="text-lg font-semibold mb-6 relative inline-block">
-                            Hızlı Bağlantılar
+                            {t('footer_quick_links')}
                             <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#3b9fc9]" />
                         </h3>
                         <ul className="space-y-3">
@@ -100,7 +102,7 @@ export default function Footer() {
                     {/* Services */}
                     <div>
                         <h3 className="text-lg font-semibold mb-6 relative inline-block">
-                            Hizmetlerimiz
+                            {t('footer_services')}
                             <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#3b9fc9]" />
                         </h3>
                         <ul className="space-y-3">
@@ -121,7 +123,7 @@ export default function Footer() {
                     {/* Contact Info */}
                     <div>
                         <h3 className="text-lg font-semibold mb-6 relative inline-block">
-                            İletişim
+                            {t('footer_contact')}
                             <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#3b9fc9]" />
                         </h3>
                         <ul className="space-y-4">
@@ -146,8 +148,8 @@ export default function Footer() {
                             <li className="flex items-start gap-3 text-white/80">
                                 <MapPin size={20} className="mt-0.5 shrink-0" />
                                 <span>
-                                    Örnek Mahallesi, Havuz Sokak No:1<br />
-                                    Kadıköy / İstanbul
+                                    {t('footer_address')}<br />
+                                    {t('footer_address_city')}
                                 </span>
                             </li>
                         </ul>
@@ -158,7 +160,7 @@ export default function Footer() {
             <div className="border-t border-white/10 relative">
                 <div className="max-w-7xl mx-auto px-6 py-6 text-center md:text-left">
                     <p className="text-white/60 text-sm">
-                        © 2026 Pooloop. Tüm hakları saklıdır.
+                        {t('footer_rights')}
                     </p>
                 </div>
                 <a
@@ -167,7 +169,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="flex justify-center md:absolute md:right-6 md:top-1/2 md:-translate-y-1/2 items-center gap-1 pb-6 md:pb-0 text-white/60 text-sm hover:text-white transition-colors"
                 >
-                    <span>created by</span>
+                    <span>{t('footer_created_by')}</span>
                     <Image src="/digivisor.svg" alt="Digivisor" width={50} height={24} className="h-4 w-auto opacity-80 mt-0.2hover:opacity-100 transition-opacity" />
                 </a>
             </div>

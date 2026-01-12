@@ -21,6 +21,7 @@ import BrandsSlider from "@/components/BrandsSlider";
 import TestimonialsSlider from "@/components/TestimonialsSlider";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import InstagramFeed from "@/components/InstagramFeed";
+import { useLanguage } from "../context/LanguageContext";
 
 import { services } from "@/app/data/services";
 
@@ -55,7 +56,13 @@ function Bubble({ left, delay, size }: { left: string; delay: number; size: numb
 }
 
 export default function Home() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
+
+  const features = [
+    t('feature_1'), t('feature_2'), t('feature_3'),
+    t('feature_4'), t('feature_5'), t('feature_6')
+  ];
 
   useEffect(() => {
     setIsVisible(true);
@@ -111,24 +118,24 @@ export default function Home() {
             <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
               <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <span className="text-[#3b9fc9] font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                  Hızlı Kurulum
+                  {t('hero_fiber_subtitle')}
                 </span>
                 <Waves className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
               </div>
 
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                Fiberglass<br />Sistemler
+                {t('hero_fiber_title')}
               </h3>
 
               <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
                 <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
-                  Fabrikasyon monoblok üretim teknolojisi sayesinde, hızlı ve pratik kurulum avantajıyla hayalinizdeki havuza kavuşun.
+                  {t('hero_fiber_desc')}
                 </p>
                 <Link
                   href="/hizmetlerimiz/fiberglass-havuz-sistemleri"
                   className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
                 >
-                  <span className="font-medium">Sistemi İncele</span>
+                  <span className="font-medium">{t('hero_btn_detail')}</span>
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -149,18 +156,18 @@ export default function Home() {
             <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
               <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <span className="text-white font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                  Özel Tasarım
+                  {t('hero_concrete_subtitle')}
                 </span>
                 <Wrench className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
               </div>
 
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                Betonarme<br />Havuzlar
+                {t('hero_concrete_title')}
               </h3>
 
               <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
                 <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
-                  İstediğiniz formda, boyutta ve derinlikte... Mühendislik harikası, ömürlük ve değer katan yapılar inşa ediyoruz.
+                  {t('hero_concrete_desc')}
                 </p>
                 <Link
                   href="/hizmetlerimiz/betonarme-havuz-sistemleri"
@@ -187,18 +194,18 @@ export default function Home() {
             <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
               <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <span className="text-[#3b9fc9] font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                  Ekonomik & Estetik
+                  {t('hero_liner_subtitle')}
                 </span>
                 <Droplets className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
               </div>
 
               <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                Liner & Modüler<br />Sistemler
+                {t('hero_liner_title')}
               </h3>
 
               <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
                 <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
-                  %100 sızdırmazlık garantisi sunan liner kaplama ve çelik panel modüler altyapı ile akıllı çözümler.
+                  {t('hero_liner_desc')}
                 </p>
                 <Link
                   href="/hizmetlerimiz/liner-havuz-sistemleri"
@@ -221,13 +228,13 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <span className="inline-block text-[#3b9fc9] font-semibold text-sm tracking-wider uppercase mb-3">
-              Hizmetlerimiz
+              {t('services_subtitle')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0c436c] mb-4">
-              Profesyonel Havuz Çözümleri
+              {t('services_title')}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              20 yılı aşkın tecrübemizle havuz yapımından bakıma kadar tüm ihtiyaçlarınıza çözüm sunuyoruz.
+              {t('services_desc')}
             </p>
           </div>
 
@@ -256,9 +263,9 @@ export default function Home() {
                     <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
                       <service.icon size={24} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                    <h3 className="text-2xl font-bold mb-2">{t(`service_title_${service.id.replace(/-/g, '_')}`)}</h3>
                     <p className="text-white/70 text-base mb-3 leading-snug">
-                      {service.description}
+                      {t(`service_shortDesc_${service.id.replace(/-/g, '_')}`)}
                     </p>
 
                     {/* Features List */}
@@ -275,7 +282,7 @@ export default function Home() {
                   </div>
                   <div className="flex justify-end mt-auto">
                     <span className="inline-flex items-center gap-2 text-white text-base font-semibold group-hover:gap-3 transition-all">
-                      Detaylı Bilgi <ArrowRight size={18} />
+                      {t('hero_btn_detail')} <ArrowRight size={18} />
                     </span>
                   </div>
                 </div>
@@ -293,13 +300,13 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block text-[#3b9fc9] font-semibold text-sm tracking-wider uppercase mb-3">
-              Dönüşümü Görün
+              {t('before_after_subtitle')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Hayalinizdeki Havuza Dönüşüm
+              {t('before_after_title')}
             </h2>
             <p className="text-white/80 text-lg">
-              İnşaat alanından, keyif dolu bir yaşam alanına uzanan profesyonel süreç.
+              {t('before_after_desc')}
             </p>
           </div>
 
@@ -314,7 +321,7 @@ export default function Home() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div className="absolute bottom-6 left-6 bg-[#0c436c] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    İnşaat Aşaması
+                    {t('before_label')}
                   </div>
                 </div>
               }
@@ -326,7 +333,7 @@ export default function Home() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div className="absolute bottom-6 right-6 bg-[#3b9fc9] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    Bitmiş Proje
+                    {t('after_label')}
                   </div>
                 </div>
               }
@@ -357,15 +364,14 @@ export default function Home() {
             {/* Content Side */}
             <div className="space-y-6">
               <span className="inline-block text-[#3b9fc9] font-semibold text-sm tracking-wider uppercase">
-                Neden Biz?
+                {t('features_title')}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0c436c]">
-                Havuz Çözümlerinde
-                <span className="block">Güvenilir Partneriniz</span>
+                {t('about_title_prefix')}
+                <span className="block">{t('about_title_suffix')}</span>
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                20 yılı aşkın tecrübemiz, uzman kadromuz ve kaliteli ürünlerimizle
-                havuz sektöründe öncü olmaya devam ediyoruz.
+                {t('about_desc')}
               </p>
 
               {/* Features List */}
@@ -382,7 +388,7 @@ export default function Home() {
                 href="/kurumsal"
                 className="inline-flex items-center gap-2 bg-[#0c436c] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#1a5a8a] transition-all"
               >
-                <span>Hakkımızda</span>
+                <span>{t('about_btn')}</span>
                 <ArrowRight size={18} />
               </Link>
             </div>
@@ -402,13 +408,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
             <span className="inline-block text-[#3b9fc9] font-semibold text-sm tracking-wider uppercase mb-3">
-              Projelerimiz
+              {t('projects_subtitle')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0c436c] mb-4">
-              Son Çalışmalarımız
+              {t('projects_title')}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Tamamladığımız projelerden örnekler
+              {t('projects_desc')}
             </p>
           </div>
 
@@ -431,7 +437,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Feed Section */}
+      {/* Instagram Feed Section - Social */}
       <InstagramFeed />
 
       <section className="py-20 bg-[#0c436c] relative overflow-hidden">
@@ -450,18 +456,17 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Havuz Projeniz İçin Hazır mısınız?
+            {t('cta_title')}
           </h2>
           <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-            Uzman ekibimizle iletişime geçin, hayalinizdeki havuz için ücretsiz
-            keşif ve teklif alın. Size özel çözümler sunmak için sabırsızlanıyoruz.
+            {t('cta_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/iletisim"
               className="inline-flex items-center justify-center gap-2 bg-white text-[#0c436c] px-8 py-4 rounded-xl font-semibold hover:bg-[#e8f4f8] transition-all"
             >
-              <span>Ücretsiz Teklif Alın</span>
+              <span>{t('cta_btn_quote')}</span>
               <ArrowRight size={20} />
             </Link>
             <a
