@@ -30,6 +30,14 @@ const catalogs: Catalog[] = [
         embedUrl: "https://heyzine.com/flip-book/a48856f9e3.html",
         pdfUrl: "/SPCLPOOL-HEATPUMP-v2.pdf",
     },
+    {
+        id: 3,
+        name: "FRP Yüzme Havuzu Katalog",
+        description: "FRP (Fiberglass) Yüzme Havuzu modellerimiz ve teknik özellikler.",
+        cover: "/banner-3.png",
+        embedUrl: "https://heyzine.com/flip-book/c780a740b0.html",
+        pdfUrl: "#",
+    },
 ];
 
 export default function CatalogsPage() {

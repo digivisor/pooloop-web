@@ -48,8 +48,8 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
         "", // 5
         "", // 6
         "", // 7
-        "col-span-2", // 8 - geniş
-        "col-span-2", // 9 - geniş
+        "col-span-2 row-span-2", // 8 - geniş
+        "col-span-2 row-span-2", // 9 - geniş
     ];
 
     return (

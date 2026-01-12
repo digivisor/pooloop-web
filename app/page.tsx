@@ -14,6 +14,7 @@ import {
   Waves,
   Sparkles,
   CheckCircle2,
+  Zap,
 } from "lucide-react";
 import { ReactCompareSlider, ReactCompareSliderImage } from "react-compare-slider";
 import BrandsSlider from "@/components/BrandsSlider";
@@ -93,85 +94,121 @@ export default function Home() {
         }
       `}</style>
 
-      {/* Hero Section - Full Background Video */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src="/pooloop-video.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-[#0c436c]/60" />
-        </div>
+      {/* Hero Section - Interactive Split Technology */}
+      <section className="bg-black relative z-10 w-full min-h-screen lg:h-screen flex flex-col pt-20 lg:pt-0">
+        <div className="flex flex-col lg:flex-row h-full">
+          {/* Item 1: Fiberglass */}
+          <div className="group relative w-full lg:flex-1 hover:lg:flex-[2] transition-[flex] duration-700 ease-in-out overflow-hidden h-[33vh] lg:h-full border-b lg:border-b-0 lg:border-r border-white/10">
+            <Image
+              src="/banner-3.png"
+              alt="Fiberglass Havuz"
+              fill
+              className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
-          <div className="max-w-3xl">
-            <div
-              className={`space-y-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-            >
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                <Droplets size={16} />
-                <span>Havuz Çözümlerinde Lider</span>
+            <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-[#3b9fc9] font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                  Hızlı Kurulum
+                </span>
+                <Waves className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Hayalinizdeki
-                <span className="block text-[#3b9fc9]">Havuzu İnşa Ediyoruz</span>
-              </h1>
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                Fiberglass<br />Sistemler
+              </h3>
 
-              <p className="text-lg text-white/90 max-w-xl leading-relaxed">
-                Havuz yapımı, havuz kimyasalları ve teknik servis hizmetlerinde
-                profesyonel çözümler sunuyoruz. Uzman ekibimizle hayalinizdeki
-                havuza kavuşun.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
+                <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
+                  Fabrikasyon monoblok üretim teknolojisi sayesinde, hızlı ve pratik kurulum avantajıyla hayalinizdeki havuza kavuşun.
+                </p>
                 <Link
-                  href="/iletisim"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#0c436c] px-8 py-4 rounded-xl font-semibold hover:bg-[#3b9fc9] hover:text-white transition-all"
+                  href="/hizmetlerimiz/fiberglass-havuz-sistemleri"
+                  className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
                 >
-                  <span>Ücretsiz Teklif Alın</span>
-                  <ArrowRight size={20} />
+                  <span className="font-medium">Sistemi İncele</span>
+                  <ArrowRight size={18} />
                 </Link>
-                <a
-                  href="tel:+902121234567"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#0c436c] transition-all"
-                >
-                  <Phone size={20} />
-                  <span>Hemen Arayın</span>
-                </a>
-              </div>
-
-              {/* Trust Badges */}
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="text-[#3b9fc9]" size={20} />
-                  <span className="text-sm text-white/90">TSE Belgeli</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="text-[#3b9fc9]" size={20} />
-                  <span className="text-sm text-white/90">ISO 9001</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="text-[#3b9fc9]" size={20} />
-                  <span className="text-sm text-white/90">Garantili Hizmet</span>
-                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce" />
+          {/* Item 2: Betonarme */}
+          <div className="group relative w-full lg:flex-1 hover:lg:flex-[2] transition-[flex] duration-700 ease-in-out overflow-hidden h-[33vh] lg:h-full border-b lg:border-b-0 lg:border-r border-white/10">
+            <Image
+              src="/galeri1.jpg"
+              alt="Betonarme Havuz"
+              fill
+              className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
+
+            <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-white font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                  Özel Tasarım
+                </span>
+                <Wrench className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                Betonarme<br />Havuzlar
+              </h3>
+
+              <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
+                <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
+                  İstediğiniz formda, boyutta ve derinlikte... Mühendislik harikası, ömürlük ve değer katan yapılar inşa ediyoruz.
+                </p>
+                <Link
+                  href="/hizmetlerimiz/betonarme-havuz-sistemleri"
+                  className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
+                >
+                  <span className="font-medium">Sistemi İncele</span>
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Item 3: Liner */}
+          <div className="group relative w-full lg:flex-1 hover:lg:flex-[2] transition-[flex] duration-700 ease-in-out overflow-hidden h-[33vh] lg:h-full">
+            <Image
+              src="/liner.png"
+              alt="Liner Havuz"
+              fill
+              className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
+
+            <div className="absolute inset-x-0 bottom-0 p-8 lg:p-16 lg:pb-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div className="flex items-start justify-between mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-[#3b9fc9] font-bold tracking-widest uppercase text-sm bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                  Ekonomik & Estetik
+                </span>
+                <Droplets className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" size={32} />
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                Liner & Modüler<br />Sistemler
+              </h3>
+
+              <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
+                <p className="text-gray-200 text-lg mb-8 max-w-md leading-relaxed">
+                  %100 sızdırmazlık garantisi sunan liner kaplama ve çelik panel modüler altyapı ile akıllı çözümler.
+                </p>
+                <Link
+                  href="/hizmetlerimiz/liner-havuz-sistemleri"
+                  className="inline-flex items-center gap-3 text-white border-b border-white pb-1 hover:text-[#3b9fc9] hover:border-[#3b9fc9] transition-colors"
+                >
+                  <span className="font-medium">Sistemi İncele</span>
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -248,6 +285,8 @@ export default function Home() {
         </div>
       </section>
 
+
+
       {/* Before / After Comparison Section */}
       <section className="py-20 bg-[#0c436c]">
         <div className="max-w-6xl mx-auto px-6">
@@ -257,10 +296,10 @@ export default function Home() {
               Dönüşümü Görün
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Bakımsız Havuzunuzu Yeniliyoruz
+              Hayalinizdeki Havuza Dönüşüm
             </h2>
             <p className="text-white/80 text-lg">
-              Profesyonel bakım ve onarım hizmetlerimizle havuzunuzu ilk günkü gibi pırıl pırıl yapıyoruz.
+              İnşaat alanından, keyif dolu bir yaşam alanına uzanan profesyonel süreç.
             </p>
           </div>
 
@@ -271,11 +310,11 @@ export default function Home() {
                 <div className="relative w-full h-full">
                   <ReactCompareSliderImage
                     src="/oncesi.png"
-                    alt="Bakımsız Havuz"
+                    alt="İnşaat Aşaması"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <div className="absolute bottom-6 left-6 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    Bakımsız
+                  <div className="absolute bottom-6 left-6 bg-[#0c436c] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    İnşaat Aşaması
                   </div>
                 </div>
               }
@@ -283,11 +322,11 @@ export default function Home() {
                 <div className="relative w-full h-full">
                   <ReactCompareSliderImage
                     src="/sonrasi.png"
-                    alt="Yenilenmiş Havuz"
+                    alt="Bitmiş Proje"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <div className="absolute bottom-6 right-6 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    Yenilenmiş
+                  <div className="absolute bottom-6 right-6 bg-[#3b9fc9] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    Bitmiş Proje
                   </div>
                 </div>
               }
@@ -325,7 +364,7 @@ export default function Home() {
                 <span className="block">Güvenilir Partneriniz</span>
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                15 yılı aşkın tecrübemiz, uzman kadromuz ve kaliteli ürünlerimizle
+                20 yılı aşkın tecrübemiz, uzman kadromuz ve kaliteli ürünlerimizle
                 havuz sektöründe öncü olmaya devam ediyoruz.
               </p>
 
@@ -376,16 +415,17 @@ export default function Home() {
           {/* Gallery with Lightbox */}
           <GalleryLightbox
             images={[
-              "/galeri1.jpg",
-              "/galeri2.jpg",
-              "/galeri3.jpg",
-              "/galeri4.jpg",
-              "/galeri5.jpg",
-              "/galeri6.jpg",
-              "/galeri7.jpg",
-              "/galeri8.jpg",
-              "/galeri9.jpg",
-              "/galeri10.jpg",
+              "/referanslar/ref1.jpg",
+              "/referanslar/ref2.JPG",
+              "/referanslar/ref3.JPG",
+              "/referanslar/ref4.JPG",
+              "/referanslar/ref5.JPG",
+              "/referanslar/ref6.JPG",
+              "/referanslar/ref7.JPG",
+              "/referanslar/ref8.JPG",
+              "/referanslar/ref21.JPG",
+              "/referanslar/ref19.JPG",
+              
             ]}
           />
         </div>
@@ -394,9 +434,7 @@ export default function Home() {
       {/* Instagram Feed Section */}
       <InstagramFeed />
 
-      {/* CTA Section with Many Small Animated Bubbles */}
       <section className="py-20 bg-[#0c436c] relative overflow-hidden">
-        {/* Many Small Animated Bubbles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {
             bubbles.map((bubble) => (

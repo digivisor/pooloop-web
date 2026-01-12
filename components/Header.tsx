@@ -10,15 +10,18 @@ const navLinks = [
     { name: "Kurumsal", path: "/kurumsal" },
     { name: "Hizmetlerimiz", path: "/hizmetlerimiz" },
     { name: "Ürünlerimiz", path: "/urunlerimiz" },
-    // { name: "Referanslar", path: "/referanslar" },
+    { name: "Referanslar", path: "/referanslar" },
     { name: "Belgelerimiz", path: "/belgelerimiz" },
-    { name: "Kataloglarımız", path: "/kataloglarimiz" },    
+    { name: "Kataloglarımız", path: "/kataloglarimiz" },
     { name: "İletişim", path: "/iletisim" },
 ];
+
+import { usePathname } from "next/navigation";
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,26 +34,23 @@ export default function Header() {
 
     return (
         <>
-            {/* Top Bar */}
-            <div className="hidden lg:block bg-[#0c436c] text-white py-2">
-                <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm">
-                    <div className="flex items-center gap-6">
-                        <a href="tel:+902121234567" className="flex items-center gap-2 hover:text-[#3b9fc9] transition-colors">
-                            <Phone size={14} />
-                            <span>+90 212 123 45 67</span>
-                        </a>
-                        <a href="mailto:info@pooloop.com.tr" className="flex items-center gap-2 hover:text-[#3b9fc9] transition-colors">
-                            <Mail size={14} />
-                            <span>info@pooloop.com.tr</span>
-                        </a>
-                    </div>
-                    <div className="flex items-center gap-2">
-
-                        {/* <span>Türkiye&apos;nin Her Yerine Hizmet</span>
-                         <Truck size={16} className="text-[#]" /> */}
+            {/* Top Bar - Hidden on Homepage */}
+            {pathname !== '/' && (
+                <div className="hidden lg:block bg-[#0c436c] text-white py-2">
+                    <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm">
+                        <div className="flex items-center gap-6">
+                            <a href="tel:+902121234567" className="flex items-center gap-2 hover:text-[#3b9fc9] transition-colors">
+                                <Phone size={14} />
+                                <span>+90 212 123 45 67</span>
+                            </a>
+                            <a href="mailto:info@pooloop.com.tr" className="flex items-center gap-2 hover:text-[#3b9fc9] transition-colors">
+                                <Mail size={14} />
+                                <span>info@pooloop.com.tr</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             {/* Main Header */}
             <header
@@ -64,7 +64,7 @@ export default function Header() {
                         {/* Logo */}
                         <Link href="/" className="flex items-center">
                             <Image
-                                src="/pooloop-logo.png"
+                                src="/logo-pooloop.png"
                                 alt="Pooloop Logo"
                                 width={160}
                                 height={50}

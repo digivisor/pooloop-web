@@ -9,19 +9,19 @@ const quickLinks = [
     { name: "Kurumsal", path: "/kurumsal" },
     { name: "Hizmetlerimiz", path: "/hizmetlerimiz" },
     { name: "Ürünlerimiz", path: "/urunlerimiz" },
-     { name: "Belgeler", path: "/belgelerimiz" },
-     { name: "Kataloglar", path: "/kataloglarimiz" },
-    // { name: "Referanslar", path: "/referanslar" },
+    { name: "Belgeler", path: "/belgelerimiz" },
+    { name: "Referanslar", path: "/referanslar" },
     { name: "İletişim", path: "/iletisim" },
 ];
 
 const services = [
+    { name: "Fiberglass Havuz Sistemleri", path: "/hizmetlerimiz/fiberglass-havuz-sistemleri" },
+    { name: "Betonarme Havuz Sistemleri", path: "/hizmetlerimiz/betonarme-havuz-sistemleri" },
+    { name: "Liner Havuz Sistemleri", path: "/hizmetlerimiz/liner-havuz-sistemleri" },
     { name: "Havuz Sistemleri", path: "/hizmetlerimiz/havuz-sistemleri" },
     { name: "Havuz Kimyasalları", path: "/hizmetlerimiz/havuz-kimyasallari" },
     { name: "Su Arıtma Sistemleri", path: "hizmetlerimiz/su-aritma-sistemleri" },
     { name: "Teknik Servis", path: "/hizmetlerimiz/teknik-servis" },
-    { name: "Isıtma Ve Soğutma Sistemleri", path: "/hizmetlerimiz/isitma-sogutma" },
-     { name: 'Otomasyon Sistemleri', path: "/hizmetlerimiz/otomasyon-sistemleri" },
 
 ];
 
@@ -38,7 +38,7 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="space-y-6">
                         <Image
-                            src="/pooloop-logo.png"
+                            src="/logo-pooloop.png"
                             alt="Pooloop Logo"
                             width={180}
                             height={60}

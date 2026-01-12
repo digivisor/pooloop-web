@@ -171,7 +171,7 @@ export default function KurumsalPage() {
                                 Havuz Sektöründe Güvenilir Çözüm Ortağınız
                             </h2>
                             <p className="text-gray-600 leading-relaxed mb-6">
-                                Pooloop olarak 2004 yılından bu yana havuz sektöründe faaliyet göstermekteyiz.
+                                Pooloop olarak 2005 yılından bu yana havuz sektöründe faaliyet göstermekteyiz.
                                 Havuz yapımı, havuz kimyasalları, su arıtma sistemleri ve teknik servis hizmetleri
                                 konularında müşterilerimize en kaliteli çözümleri sunmak için çalışıyoruz.
                             </p>

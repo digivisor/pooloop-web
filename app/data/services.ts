@@ -9,6 +9,72 @@ import {
 
 export const services = [
     {
+        id: "fiberglass-havuz-sistemleri",
+        icon: Waves,
+        title: "Fiberglass Havuz Sistemleri",
+        shortDesc: "Hızlı kurulum, uzun ömür ve düşük bakım avantajı",
+        description: "Hızlı kurulum, uzun ömür ve düşük bakım avantajı sunan, fabrikasyon kompozit havuz teknolojisi.",
+        content: `Fabrikasyon monoblok üretim teknolojisi sayesinde, şantiye süreci olmadan hızlı ve pratik bir şekilde hayalinizdeki havuza kavuşun.
+
+        Avantajları:
+        - Hızlı ve pratik kurulum avantajı
+        - Pürüzsüz yüzey ve kolay temizlik
+        - Sızdırmaz yekpare gövde
+        - Yüksek mukavemetli yapı`,
+        image: "/banner-3.png",
+        features: [
+            "Fabrikasyon üretim",
+            "Düşük bakım maliyeti",
+            "Sızdırmaz gövde",
+            "Hızlı kurulum"
+        ],
+        link: "/hizmetlerimiz/fiberglass-havuz-sistemleri",
+    },
+    {
+        id: "betonarme-havuz-sistemleri",
+        icon: Wrench,
+        title: "Betonarme Havuz Sistemleri",
+        shortDesc: "Özel ölçü ve sınırsız tasarım imkanı",
+        description: "Özel ölçü, sınırsız tasarım ve yüksek mühendislik gerektiren projeler için yerinde imalat betonarme havuz çözümleri.",
+        content: `Arazinize ve hayallerinize uygun sınırsız tasarım imkanı. Güçlendirilmiş betonarme yapısı ile ömürlük kullanım.
+
+        Özellikler:
+        - İstenilen form ve ölçüde üretim
+        - C30/35 yüksek dayanımlı beton
+        - Mozaik veya seramik kaplama seçenekleri
+        - Profesyonel mekanik tesisat`,
+        image: "/galeri1.jpg",
+        features: [
+            "Sınırsız tasarım imkanı",
+            "Özel ölçü üretim",
+            "Yüksek dayanıklılık",
+            "Uzun ömürlü yapı"
+        ],
+        link: "/hizmetlerimiz/betonarme-havuz-sistemleri",
+    },
+    {
+        id: "liner-havuz-sistemleri",
+        icon: Droplets,
+        title: "Liner & Modüler Sistemler",
+        shortDesc: "Ekonomik, estetik ve %100 sızdırmazlık",
+        description: "Çelik panel altyapı ve liner kaplama teknolojisiyle esnek, ekonomik ve hızlı kurulum imkanı sunan sistemler.",
+        content: `%100 sızdırmazlık garantisi sunan liner kaplama ve çelik panel modüler altyapı ile akıllı çözümler.
+
+        Neden Liner Havuz?
+        - Esnek yapısıyla zemin hareketlerine dayanıklı
+        - Ekonomik kurulum maliyeti
+        - Anti-bakteriyel yüzey
+        - Kolay yenilenebilir kaplama`,
+        image: "/liner.png",
+        features: [
+            "Çelik panel altyapı",
+            "Liner kaplama",
+            "Ekonomik fiyat",
+            "Esnek montaj"
+        ],
+        link: "/hizmetlerimiz/liner-havuz-sistemleri",
+    },
+    {
         id: "havuz-sistemleri",
         icon: Droplets,
         title: "Havuz Sistemleri",
